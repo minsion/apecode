@@ -11,7 +11,7 @@
 
 ## 运行
 
-node v21.5.0 [default]
+node v18.17.0
 
 ```shell
 # 安装依赖
