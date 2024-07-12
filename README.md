@@ -15,16 +15,16 @@ node v18.17.0
 
 ```shell
 # 安装依赖
-$ npm install
+npm install
 
 # 运行开发环境
-$ npm run dev
+npm run dev
 
 # 打包
-$ npm run build
+npm run build
 
 # 运行生产环境
-$ npm run preview
+npm run preview
 
 # 把项目中 .vitepress/dist 里面的文件提交到gh-pages分支，实现自动部署
 git subtree push --prefix .vitepress/dist origin gh-pages
