@@ -28,7 +28,7 @@ export const lastUpdatedText: string = "最后更新于";
 
 // footer
 export const footerMessage: string = "Released under the MIT License.";
-export const footerCopyright: string = "Copyright © 2023 - 2024 💓 Xiao Zan";
+export const footerCopyright: string = "Copyright © 2023 - 2024 💓 minsion";
 
 // icon
 export const juejinIcon: string =
