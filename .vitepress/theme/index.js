@@ -68,20 +68,20 @@ export default {
     );
 
     // 评论组件
-    giscusTalk(
-      {
-        repo: "JhouXu/apecode",
-        repoId: "R_kgDOJMzoMg",
-        category: "Announcements",
-        categoryId: "DIC_kwDOJMzoMs4CVW-J",
-        mapping: "pathname",
-        inputPosition: "top",
-        loading: "lazy",
-      },
-      {
-        frontmatter,
-        route,
-      }
-    );
+    // giscusTalk(
+    //   {
+    //     repo: "JhouXu/apecode",
+    //     repoId: "R_kgDOJMzoMg",
+    //     category: "Announcements",
+    //     categoryId: "DIC_kwDOJMzoMs4CVW-J",
+    //     mapping: "pathname",
+    //     inputPosition: "top",
+    //     loading: "lazy",
+    //   },
+    //   {
+    //     frontmatter,
+    //     route,
+    //   }
+    // );
   },
 };
