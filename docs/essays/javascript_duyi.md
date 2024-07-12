@@ -1,6 +1,3 @@
-# 渡一大师课
-
-本文为观看[渡一教育大师课](https://fe.duyiedu.com/p/t_pc/course_pc_detail/camp_pro/course_2VKbErGXkTSzvbl9aQ9HgndEtIz)后，整理的线上面试题笔记，以供日常复习使用。
 
 ## 一、原理 - 事件循环
 

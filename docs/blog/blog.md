@@ -37,7 +37,7 @@ layout: doc
 
 ## 概述
 
-技术沉淀板块，主要包含有：`Javascript`、`Css`、`微信小程序`、`前端算法`、`实际开发`、`插件笔记`、`其他`等七个大类。并且会同步分享至[掘金](https://juejin.cn/user/1126374170967367/posts)、[CSDN](https://blog.csdn.net/weixin_44808483?type=blog) 等博客平台中。
+技术沉淀板块，主要包含有：`Javascript`、`Css`、`微信小程序`、`前端算法`、`实际开发`、`插件笔记`、`其他`等七个大类。
 
 ## 分类
 

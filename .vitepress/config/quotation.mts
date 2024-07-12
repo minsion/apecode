@@ -88,53 +88,53 @@ export const quotationData: quotationItem[] = [
   },
   {
     content: "在你没有办法说服自己前，不要想着去说服别人。",
-    source: "鱼皮",
-    date: "2024-04-17",
+    source: "minsion",
+    date: "2024-07-13",
   },
   {
     content: "永远不要向任何人透露自己的底牌，凡是留一手。",
-    source: "鱼皮",
-    date: "2024-04-17",
+    source: "minsion",
+    date: "2024-07-13",
   },
   {
     content: "没有真正信得过的人，只有站得住的利益。",
-    source: "鱼皮",
-    date: "2024-04-17",
+    source: "minsion",
+    date: "2024-07-13",
   },
   {
     content: "无论发生什么，都不要觉得意外，都要以平常心对待。",
-    source: "鱼皮",
-    date: "2024-04-17",
+    source: "minsion",
+    date: "2024-07-13",
   },
   {
     content: "学会利他，合作前先换位思考，明确对方的诉求。",
-    source: "鱼皮",
-    date: "2024-04-17",
+    source: "minsion",
+    date: "2024-07-13",
   },
   {
     content: "不要把产品想的太复杂，遵循最小可用性原则，先快速验证、持续迭代。",
-    source: "鱼皮",
-    date: "2024-04-17",
+    source: "minsion",
+    date: "2024-07-13",
   },
   {
     content: "注重公司的内部沉淀，尤其是工作流和规范文档。",
-    source: "鱼皮",
-    date: "2024-04-17",
+    source: "minsion",
+    date: "2024-07-13",
   },
   {
     content: "记录下自己的创业过程，这是独特的经验，也是宝贵的财富。",
-    source: "鱼皮",
-    date: "2024-04-17",
+    source: "minsion",
+    date: "2024-07-13",
   },
   {
     content: "身体诗革命的本钱，要做好长线发展的准备，不要盲目焦虑。",
-    source: "鱼皮",
-    date: "2024-04-17",
+    source: "minsion",
+    date: "2024-07-13",
   },
   {
     content: "时刻保持警惕，假定最坏的结果会发生并提前做好兜底策略。",
-    source: "鱼皮",
-    date: "2024-04-17",
+    source: "minsion",
+    date: "2024-07-13",
   },
   {
     content:
@@ -160,7 +160,7 @@ export const quotationData: quotationItem[] = [
   },
   {
     content: "时间就是金钱，效率就是生命。",
-    source: "【深圳市】",
+    source: "【郑州】",
     date: "2024-05-27",
   },
 ];
