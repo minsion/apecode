@@ -2,7 +2,7 @@
 import { ref, onMounted, onBeforeUnmount, watch } from "vue";
 import * as echarts from "echarts";
 
-import { BlogData } from "./../config/navSidebarBlog.mts";
+import { BlogData } from "../config/navSidebarBlog.mts";
 
 const theme = ref<string>(""); // '' | dark
 
@@ -139,10 +139,10 @@ const initEchartHeatmap = (
       orient: "horizontal",
       right: 37,
       top: 160,
-      inRange: {
-        color: themeColor.color,
-        borderColor: themeColor.borderColor,
-      },
+      // inRange: {
+      //   color: themeColor.color,
+      //   borderColor: themeColor.borderColor,
+      // },
     },
     calendar: {
       top: 40,

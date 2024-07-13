@@ -16,24 +16,19 @@ import {
   lastUpdatedText,
   footerMessage,
   footerCopyright,
-} from "./config/meta.mts";
-import { head } from "./config/head.mts";
-import { socialLinks } from "./config/social.mts";
-import { nav } from "./config/nav.mts";
-import { sidebar } from "./config/sidebar.mts";
-import en from './config/en/en.mts';
+} from "./meta.mts";
+import { head } from "./head.mts";
+import { socialLinks } from "./social.mts";
+import { nav } from "./nav.mts";
+import { sidebar } from "./sidebar.mts";
 
 export default defineConfig({
+  lang: 'en-US',
   title: titleEn,
   description: description,
   base: base,
   srcDir: "docs",
   lastUpdated: true,
-  locales: {
-    root: { label: '简体中文', lang: "zh-CN" },
-    en: { label: 'English', ...en },
-  },
-
   themeConfig: {
     siteTitle: titleEn,
     logo: logo,

@@ -23,7 +23,7 @@ defineProps<{
         <span v-if="quotation.profession"> - </span>
         {{ quotation.profession }}
       </div>
-      <div class="date">收录于：{{ quotation.date }}</div>
+      <div class="date">{{ quotation.date }}</div>
     </div>
   </div>
 </template>

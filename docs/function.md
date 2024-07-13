@@ -530,3 +530,22 @@ function replaceString(sourceStr, checkStr, replaceStr = "") {
 ```
 
 :::
+
+## {{ getNumEmoji() }} 千分位分隔符
+
+:::tip 千分位分隔符
+
+```javascript
+function thousandSeparator(number) {
+  let result = [];
+  let rest = String(number);
+  while (rest.length) {
+    result.unshift(rest.slice(-3));
+    rest = rest.slice(0, -3);
+  }
+  const tempRes = result.join(",");
+  return tempRes
+}
+console.log('thousandSeparator：', thousandSeparator(12378900)) // 12,378,900
+```
+:::
