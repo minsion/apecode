@@ -8,7 +8,7 @@ export const title: string = "Ape Code";
 export const titleEn: string = "ApeCode";
 export const description: string = "describe";
 export const base: string = "/apecode/";
-export const logo: string = "./images/logo_min.png";
+export const logo: string = "../images/logo_min.svg";
 
 // social link
 export const juejin: string = "https://juejin.cn/user/1126374170967367/posts";

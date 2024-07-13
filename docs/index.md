@@ -3,11 +3,12 @@ layout: home
 
 hero:
   name: 猿代码
-  text: Passion never fails
-  tagline: 程序猿的秘密花园
+  # text: Passion never fails
+  tagline: 程序猿的秘密花园<br />持续更新中...
   image:
-    src: ./images/undraw_designer.svg
+    src: ./images/undraw_designer.jpg
     alt: logo图标
+    style: {min-width: '400px', border-radius: '10px'}
   actions:
     - theme: brand
       text: 开始

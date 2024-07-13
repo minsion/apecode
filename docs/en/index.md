@@ -3,11 +3,12 @@ layout: home
 
 hero:
   name: Ape code
-  text: Passion never fails
-  tagline: The programmer's secret garden
+  # text: Continuously updating...
+  tagline: The programmer's secret garden <br /> Continuously updating...
   image:
-    src: ../images/undraw_designer.svg
+    src: ../images/undraw_designer.jpg
     alt: logo图标
+    style: {min-width: '400px', border-radius: '10px'}
   actions:
     - theme: brand
       text: Start
