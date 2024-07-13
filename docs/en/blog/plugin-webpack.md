@@ -371,7 +371,7 @@ module.exports = {
 
 此时运行 npm run webpack，会自动在浏览器打开文件分析图。
 
-![webpack-bundle-analyzer](../public/images/blog/webpack-bundle-analyzer.png)
+![webpack-bundle-analyzer](../../public/images/blog/webpack-bundle-analyzer.png)
 
 ## 开发服务器
 
