@@ -72,7 +72,7 @@ export default {
         repo: "minsion/apecode",
         repoId: "R_kgDOMVYsGQ",
         category: "Announcements",
-        categoryId: "DIC_kwDOMVYsGc4CgxBN",
+        categoryId: "DIC_kwDOMVYsGc4CgxBM",
         mapping: "pathname",
         inputPosition: "top",
         loading: "lazy",
