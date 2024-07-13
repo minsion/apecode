@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="395px" height="395px" viewBox="0 0 395 395" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>渐变</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="395" height="395"></rect>
+        <linearGradient x1="24.1829044%" y1="93.1087748%" x2="88.1581165%" y2="20.0932714%" id="linearGradient-3">
+            <stop stop-color="#ED79FF" offset="0%"></stop>
+            <stop stop-color="#D87BFD" offset="3%"></stop>
+            <stop stop-color="#A182F7" offset="11%"></stop>
+            <stop stop-color="#4A8CED" offset="20%"></stop>
+            <stop stop-color="#1D91E8" offset="30%"></stop>
+            <stop stop-color="#26A4E5" offset="43%"></stop>
+            <stop stop-color="#36C6DF" offset="61%"></stop>
+            <stop stop-color="#40E18B" offset="100%"></stop>
+        </linearGradient>
+        <path d="M338.467327,241.627436 C335.568635,229.649448 335.568635,196.899134 338.467327,143.170144 C337.336089,63.7716569 272.649367,0 193.242821,0 C113.836276,0 49.1495535,63.7716569 48.0183155,143.170144 C50.9202836,196.886032 50.9202836,229.705129 48.0183155,241.627436 C43.5671026,259.510897 32.650331,299.218074 17.1939117,316.905013 C-4.6396315,338.355339 -0.777983216,351.689326 2.70044806,358.626536 C6.17887935,365.563746 17.7736503,375.330867 43.1838856,364.423921 C68.5941209,353.516976 83.3823668,346.638722 113.430511,368.865308 C161.809022,401.044897 224.774882,401.044897 273.153393,368.865308 C303.201537,346.638722 317.979957,353.310628 343.400018,364.423921 C368.82008,375.537215 380.405024,365.583399 383.883456,358.626536 C387.361887,351.669673 391.420057,338.433948 369.488253,316.983621 C353.923747,299.316335 342.928366,259.599331 338.467327,241.627436 Z" id="path-4"></path>
+        <linearGradient x1="49.995303%" y1="172.625435%" x2="49.995303%" y2="35.8908534%" id="linearGradient-6">
+            <stop stop-color="#723DC4" offset="0%"></stop>
+            <stop stop-color="#6E50C4" stop-opacity="0.68" offset="32%"></stop>
+            <stop stop-color="#6381C4" stop-opacity="0.04" offset="96%"></stop>
+            <stop stop-color="#6285C4" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <radialGradient cx="50%" cy="49.996334%" fx="50%" fy="49.996334%" r="50%" id="radialGradient-7">
+            <stop stop-color="#F1F1F1" stop-opacity="0.6" offset="0%"></stop>
+            <stop stop-color="#FDFDFD" stop-opacity="0.2" offset="45%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="47.9890966%" cy="49.8635842%" fx="47.9890966%" fy="49.8635842%" r="57.9020845%" gradientTransform="translate(0.479891,0.498636),scale(0.845934,1.000000),rotate(26.520146),translate(-0.479891,-0.498636)" id="radialGradient-8">
+            <stop stop-color="#F1F1F1" stop-opacity="0.8" offset="0%"></stop>
+            <stop stop-color="#FDFDFD" stop-opacity="0.4" offset="57%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="50%" cy="49.9955516%" fx="50%" fy="49.9955516%" r="50%" id="radialGradient-9">
+            <stop stop-color="#3091F1" offset="0%"></stop>
+            <stop stop-color="#3097F1" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <linearGradient x1="78.8281502%" y1="15.7968363%" x2="18.7990961%" y2="87.02249%" id="linearGradient-10">
+            <stop stop-color="#F1F1F1" offset="8%"></stop>
+            <stop stop-color="#F3FBFF" offset="68%"></stop>
+            <stop stop-color="#B4DBFC" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="83.2250897%" y1="11.4168518%" x2="17.2107332%" y2="88.0789609%" id="linearGradient-11">
+            <stop stop-color="#484848" offset="0%"></stop>
+            <stop stop-color="#191919" offset="100%"></stop>
+        </linearGradient>
+        <radialGradient cx="57.3335482%" cy="52.9484259%" fx="57.3335482%" fy="52.9484259%" r="65.8563071%" gradientTransform="translate(0.573335,0.529484),scale(1.000000,0.636144),rotate(93.675295),scale(1.000000,0.668593),translate(-0.573335,-0.529484)" id="radialGradient-12">
+            <stop stop-color="#FFFFFF" stop-opacity="0.2" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.1" offset="63.8382458%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="标小智最最最最新版本logo" transform="translate(-119.000000, -670.000000)">
+            <g id="body" transform="translate(119.000000, 670.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="蒙版"></g>
+                <g id="logo(1)" mask="url(#mask-2)">
+                    <g transform="translate(2.500000, 1.000000)">
+                        <g id="路径" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(1.937558, 0.000000)">
+                            <mask id="mask-5" fill="white">
+                                <use xlink:href="#path-4"></use>
+                            </mask>
+                            <use id="蒙版" fill="url(#linearGradient-3)" fill-rule="nonzero" xlink:href="#path-4"></use>
+                            <path d="M369.389992,317.003274 C363.111129,309.751629 357.500439,298.834857 352.76427,287.240086 L33.7115473,287.240086 C29.0736389,298.834857 23.472775,309.751629 17.1939117,317.003274 C-4.6396315,338.355339 -0.777983216,351.689326 2.70044806,358.626536 C6.17887935,365.563746 17.7736503,375.330867 43.1838856,364.423921 C68.5941209,353.516976 83.3823668,346.638722 113.430511,368.865308 C161.809022,401.044897 224.774882,401.044897 273.153393,368.865308 C303.201537,346.638722 317.979957,353.310628 343.400018,364.423921 C368.82008,375.537215 380.405024,365.583399 383.883456,358.626536 C387.361887,351.669673 391.321796,338.355339 369.389992,317.003274 Z" fill="url(#linearGradient-6)" fill-rule="nonzero" opacity="0.35" mask="url(#mask-5)"></path>
+                        </g>
+                        <circle id="椭圆形" fill="url(#radialGradient-7)" fill-rule="nonzero" cx="201.945633" cy="138.149019" r="134.017865"></circle>
+                        <path d="M321.175252,139.593452 C300.884403,181.531149 239.618813,193.90218 184.455216,167.106468 C129.291619,140.310756 101.071126,84.7148117 121.361975,42.7771148 C141.652824,0.839417846 202.918415,-11.5217871 258.082011,15.264099 C313.245608,42.0499851 341.466101,97.6655812 321.175252,139.593452 Z" id="路径" fill="url(#radialGradient-8)" fill-rule="nonzero"></path>
+                        <circle id="椭圆形" fill="url(#radialGradient-9)" fill-rule="nonzero" cx="183.099217" cy="171.773854" r="110.445106"></circle>
+                        <circle id="椭圆形" fill="url(#linearGradient-10)" fill-rule="nonzero" cx="195.175466" cy="144.811099" r="91.3137342"></circle>
+                        <circle id="椭圆形" fill="url(#linearGradient-11)" fill-rule="nonzero" cx="195.175466" cy="144.811099" r="57.4923769"></circle>
+                        <circle id="椭圆形" fill="#FFFFFF" fill-rule="nonzero" cx="210.641711" cy="121.818079" r="18.8464158"></circle>
+                        <ellipse id="椭圆形" fill="url(#radialGradient-12)" fill-rule="nonzero" transform="translate(39.253502, 336.675479) scale(-1, 1) rotate(-50.000000) translate(-39.253502, -336.675479) " cx="39.2535017" cy="336.675479" rx="21.2527149" ry="33.408662"></ellipse>
+                        <ellipse id="椭圆形" fill="url(#radialGradient-12)" fill-rule="nonzero" transform="translate(350.740145, 336.675479) rotate(-50.000000) translate(-350.740145, -336.675479) " cx="350.740145" cy="336.675479" rx="21.2527149" ry="33.408662"></ellipse>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
