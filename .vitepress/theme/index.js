@@ -67,21 +67,20 @@ export default {
       () => nextTick(() => initZoom())
     );
 
-    // 评论组件
-    // giscusTalk(
-    //   {
-    //     repo: "JhouXu/apecode",
-    //     repoId: "R_kgDOJMzoMg",
-    //     category: "Announcements",
-    //     categoryId: "DIC_kwDOJMzoMs4CVW-J",
-    //     mapping: "pathname",
-    //     inputPosition: "top",
-    //     loading: "lazy",
-    //   },
-    //   {
-    //     frontmatter,
-    //     route,
-    //   }
-    // );
+    giscusTalk(
+      {
+        repo: "minsion/apecode",
+        repoId: "R_kgDOMVYsGQ",
+        category: "Announcements",
+        categoryId: "DIC_kwDOMVYsGc4CgxBN",
+        mapping: "pathname",
+        inputPosition: "top",
+        loading: "lazy",
+      },
+      {
+        frontmatter,
+        route,
+      }
+    );
   },
 };

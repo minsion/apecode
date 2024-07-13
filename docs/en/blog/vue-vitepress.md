@@ -148,15 +148,15 @@ export default {
     // 获取前言和路由
     const { frontmatter } = useData();
     const route = useRoute();
-    // 评论组件
     giscusTalk(
       {
-        // 填写上述备份好的字段
-        repo: "xxxxx/xxxxx",
-        repoId: "x_xxxxxx",
+        repo: "minsion/apecode",
+        repoId: "R_kgDOMVYsGQ",
         category: "Announcements",
-        categoryId: "xxx_xxxxxxxxx-x",
+        categoryId: "DIC_kwDOMVYsGc4CgxBN",
         mapping: "pathname",
+        inputPosition: "top",
+        loading: "lazy",
       },
       {
         frontmatter,
