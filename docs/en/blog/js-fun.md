@@ -2,48 +2,48 @@
 layout: doc
 ---
 
-# 自封装常用的工具函数
+# Self-encapsulated commonly used tool functions
 
 :::warning
-截止，本文将停止更新，
+As of now, this article will stop updating.
 
-工具函数将迁移至 `轻函数` 板块，并持续更新，感兴趣的小伙伴可以前往查阅，
+The tool functions will be moved to the `Light Function` section and will be continuously updated. Interested friends can go there to check it out.
 
-附上链接： https://minsion.github.io/apecode/function.html
+Attached link: https://minsion.github.io/apecode/function.html
 :::
 
-## 字符串处理
+## String processing
 
-### 替换字符串
+### Replace string
 
-## 数学运算
+## Mathematical operation
 
-### 四则运算
+### Four operations
 
-### 随机数
+### Random number
 
-### 随机数(相邻去重)
+### Random number (adjacent deduplication)
 
-## 时间处理
+## Time processing
 
-### 时间戳
+### Timestamp
 
-### 时间戳格式
+### Timestamp format
 
-### 时间格式
+### Time format
 
-### 前补零
+### Leading zero padding
 
-## 项目开发
+## Project development
 
 ### GUID
 
-### 浏览器环境
+### Browser environment
 
-### 地址栏参数
+### Address bar parameters
 
-### 地址栏参数(指定)
+### Address bar parameters (specified)
 
-## 性能优化
+## Performance optimization
 
-### 节流
+### Throttling

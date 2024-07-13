@@ -12,7 +12,7 @@ hero:
   actions:
     - theme: brand
       text: Start
-      link: /blog/blog.md
+      link: /en/blog/blog.md
     - theme: alt
       text: Participate in construction
       link: https://github.com/minsion/apecode
@@ -40,7 +40,7 @@ features:
   - icon: 🌞
     title: Quotes
     details: Some interesting sentences.
-    link: /quotation.md
+    link: /en/quotation.md
     linkText: Learn more
   - icon: 🚩
     title: Embrace open source

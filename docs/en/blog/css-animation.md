@@ -2,39 +2,39 @@
 layout: doc
 ---
 
-# CSS3 转换过渡动画
+# CSS3 Transition Animation
 
-## 前言
+## Preface
 
-在过去，我们想要页面上实现动画效果，往往是需要通过 javascript 脚本来进行事件监听执行的，如今 css3 的推出，我们可以更简洁地实现动画效果，本文将主要从 transform、transition、animate 三大点出发，对其的属性进行深度的梳理。
+In the past, if we wanted to achieve animation effects on the page, we often needed to use javascript scripts to listen for events. Now with the introduction of CSS3, we can achieve animation effects more concisely. This article will mainly start from the three major points of transform, transition, and animate, and conduct an in-depth review of their properties.
 
 ## transform
 
-![请添加图片描述](/images/blog/css/abbfe3e08b8a98da1ea3d65247220926.gif)
+![Please add image description](/images/blog/css/abbfe3e08b8a98da1ea3d65247220926.gif)
 
-转换属性允许你`旋转`，`缩放`，`倾斜`或`平移`给定元素。这是通过修改 `CSS 视觉格式化模型的坐标空间`来实现的。其中转换属性可以根据转换后的效果分为 2D 和 3D 的，下面将分别从属性值和使用方式进行介绍。
+The transformation property allows you to `rotate`, `scale`, `tilt` or `translate` a given element. This is achieved by modifying the `coordinate space of the CSS visual formatting model`. The transformation property can be divided into 2D and 3D according to the effect after the transformation. The following will introduce them from the property value and usage.
 
 ### 2D transform
 
-相关属性值：
+Related property values:
 
-- translate(x, y) - `平移`，根据 x,y 轴对应的值进行相对位置移动，类似 position:relative；translate(x) 等同于 translate(x,0)；可选单位：css 中关于长度单位均可。
-  - translateX(x) - 仅设置 x 轴上的偏移位置。
-  - translateY(y) - 仅设置 y 轴上的偏移位置。
-- rotate(deg) - `旋转角度`，根据 deg 角度的设定让元素以`自身中心位置为原点`发生旋转；可选单位：deg（css 中表示角度的单位）。
-- scale(mul) - `缩放`，根据 mul 缩放倍数根据`自身中心位置为原点`发生放大缩小效果，mul 参数是一个大于等于 0 的实数，默认值：1，大于 1 表示放大，小于 1 表示缩小。
-  - scaleX(mul) - 改变元素的宽度。
-  - scaleY(mul) - 改变元素的高度。
-- skew(\<angle\> [,\<angle\>]) - `倾斜角度`，分别表示 X 轴和 Y 轴倾斜的角度，如果第二个参数为空，则默认为 0，参数为负表示向相反方向倾斜；可选单位：deg（css 中表示角度的单位）。
-  - skewX(\<angle\>) - 表示只在 X 轴(水平方向)倾斜。
-  - skewY(\<angle\>) - 表示只在 Y 轴(水平方向)倾斜。
-- matrix(a, b, c, d, tx, ty) - 是 2D 变换方法的`组合设置`，设置缩放，倾斜和移动（平移）功能。。
-  - a - 水平缩放
-  - b - 水平倾斜
-  - c - 垂直倾斜
-  - d - 垂直缩放
-  - tx - 水平移动
-  - ty - 垂直移动
+- translate(x, y) - `Translation`, relative position movement according to the corresponding values ​​of the x and y axes, similar to position:relative; translate(x) is equivalent to translate(x,0); optional units: all length units in CSS.
+- translateX(x) - only set the offset position on the x axis.
+- translateY(y) - only set the offset position on the y axis.
+- rotate(deg) - `Rotation angle`, rotate the element with its own center as the origin according to the setting of the deg angle; optional unit: deg (unit for angles in CSS).
+- scale(mul) - `Scale`, magnify and reduce the effect with its own center as the origin according to the mul scaling factor. The mul parameter is a real number greater than or equal to 0, with a default value of 1. Greater than 1 means magnification, and less than 1 means reduction.
+- scaleX(mul) - change the width of the element.
+- scaleY(mul) - changes the height of the element.
+- skew(\<angle\> [,\<angle\>]) - `skew angle`, which indicates the angle of the X-axis and Y-axis respectively. If the second parameter is empty, the default is 0. A negative parameter indicates a tilt in the opposite direction. Optional unit: deg (the unit for angles in CSS).
+- skewX(\<angle\>) - indicates tilt only on the X-axis (horizontal direction).
+- skewY(\<angle\>) - indicates tilt only on the Y-axis (horizontal direction).
+- matrix(a, b, c, d, tx, ty) - is a `combination setting` of 2D transformation methods, setting scaling, tilting and moving (translation) functions. .
+- a - horizontal scaling
+- b - horizontal tilting
+- c - vertical tilting
+- d - vertical scaling
+- tx - horizontal movement
+- ty - vertical movement
 
 ```html
 <!-- 2d 案例 -->
