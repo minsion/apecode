@@ -29,8 +29,6 @@ layout: doc
 
 封装常用量、轻量的工具函数。
 
-前身 [自封装常用的工具函数 👉](https://minsion.github.io/apecode/blog/js-fun.html)
-
 ## {{ getNumEmoji() }} 性能优化
 
 ### 防抖
@@ -547,5 +545,31 @@ function thousandSeparator(number) {
   return tempRes
 }
 console.log('thousandSeparator：', thousandSeparator(12378900)) // 12,378,900
+```
+:::
+
+## {{ getNumEmoji() }} 检查是否是类的对象实例
+
+:::tip 检查是否是类的对象实例
+
+```javascript
+const checkIfInstanceOf = (obj, classFunction) => {
+  if (classFunction === null) return false;
+  while (obj !== null) {
+    if (obj.__proto__ === classFunction.prototype) {
+      return true
+    };
+    obj = obj.__proto__;
+  }
+  return false;
+}
+class Animal {};
+class Dog extends Animal {};
+
+console.log('checkIfInstanceOf', checkIfInstanceOf(new Date(), Date)) // true
+console.log('checkIfInstanceOf', checkIfInstanceOf(new Dog(), Animal)) // true
+console.log('checkIfInstanceOf', checkIfInstanceOf(Date, Date)) // false
+console.log('checkIfInstanceOf', checkIfInstanceOf(5, Number)) // true
+console.log('checkIfInstanceOf', checkIfInstanceOf([], Array)) // true
 ```
 :::
