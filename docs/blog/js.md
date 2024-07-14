@@ -3006,48 +3006,27 @@ console.log(child.hasOwnProperty('sayName'))//false
 > 参考答案：
 >
 > 示例代码如下：
->
-> ```js
-> function intersect(nums1, nums2) {
->     let i = j = 0,
->         len1 = nums1.length,
->         len2 = nums2.length,
->         newArr = [];
->     if (len1 === 0 || len2 === 0) {
->         return newArr;
->     }
->     nums1.sort(function (a, b) {
->         return a - b;
->     });
->     nums2.sort(function (a, b) {
->         return a - b;
->     });
->     while (i < len1 || j < len2) {
->         if (nums1[i] > nums2[j]) {
->             j++;
->         } else if (nums1[i] < nums2[j]) {
->             i++;
->         } else {
->             if (nums1[i] === nums2[j]) {
->                 newArr.push(nums1[i]);
->             }
->             if (i < len1 - 1) {
->                 i++;
->             } else {
->                 break;
->             }
->             if (j < len2 - 1) {
->                 j++;
->             } else {
->                 break;
->             }
->         }
->     }
->     return newArr;
-> };
-> // 测试
-> console.log(intersect([3, 5, 8, 1], [2, 3]));
-> ```
+
+```js
+const set_intersection = (set1, set2) => {
+  if (set1.size > set2.size) {
+    return set_intersection(set2, set1);
+  }
+  const intersection = new Set();
+  for (const num of set1) {
+    if (set2.has(num)) {
+      intersection.add(num);
+    }
+  }
+  return [...intersection];
+}
+var intersection = function(nums1, nums2) {
+  const set1 = new Set(nums1);
+  const set2 = new Set(nums2);
+  return set_intersection(set1, set2);
+};
+console.log(intersection([3, 5, 8, 1], [2, 3]));
+```
 
 
 
