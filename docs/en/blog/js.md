@@ -32,32 +32,7 @@ layout: doc
     return date.slice(0, length);
   }
 </script>
-# Random Notes
 
-## Overview
+## JavaScript
 
-The technical precipitation section mainly includes seven categories: `Javascript`, `Css`, `WeChat Mini Program`, `Front-end Algorithm`, `Practical Development`, `Plugin Notes`, `Others`, etc.
-
-## Classification
-
-- Javascript: related grammar knowledge;
-- Css: related style knowledge;
-- WeChat applet: the smallest demo component for actual development of applet;
-- Front-end algorithm: common algorithms involved in the front-end;
-- Actual development: a collection of bug problems in the web development process, and solutions;
-- Plugin notes: records of plugin usage for the front-end, etc.;
-- Others: miscellaneous.
-
-## Recent
-
-<div class="recent">
-<p v-for="(item, key) in getRenderDateSlice(renderDate, 8)" :key="key">
-<a :href="`${base.slice(0, base.length - 1)}${item.href}`">
-{{item.type}} - {{item.text}} : {{item.time}}
-</a>
-</p>
-</div>
-
-## Data
-
-<DocsBlogCharts />
+updating...

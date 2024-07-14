@@ -22,20 +22,20 @@ features:
     details: Interesting and practical website to improve efficiency.
     link: /en/navigation.md
     linkText: View Now
-  - icon: 🗃️
-    title: Notes
-    details: Simple and minimalist, always the same。
-    link: /en/blog/blog.md
+  - icon: 🚀
+    title: Light Functions
+    details: The lightest utility function.
+    link: /en/function.md
     linkText: Learn more
   - icon: 📝
     title: Eight-part essay
     details: Summarize, summarize, organize, latest。
     link: /en/essays/essays.md
     linkText: Learn more
-  - icon: 🚀
-    title: Light Functions
-    details: The lightest utility function.
-    link: /en/function.md
+  - icon: 🗃️
+    title: Interview
+    details: Simple and minimalist, always the same。
+    link: /en/blog/js.md
     linkText: Learn more
   - icon: 🌞
     title: Quotes
