@@ -1,26 +1,32 @@
 # JavaScript
 
-## 八种数据类型及区别
+## Eight data types and their differences
 
-包括值类型(基本对象类型)和引用类型(复杂对象类型)
+Including value type (basic object type) and reference type (complex object type)
 
-基本类型(值类型)： 在内存中占据固定大小，保存在栈内存中
+Basic type (value type): Occupies a fixed size in memory and is stored in stack memory
 
-- Number(数字),
-- String(字符串),
-- Boolean(布尔),
-- Symbol(符号),
-- null(空),
-- undefined(未定义)
+- Number,
 
-引用类型(复杂数据类型)： 保存在堆内存中，栈内存存储的是对象的变量标识符以及对象在堆内存中的存储地址。
+- String,
 
-- Object(对象)
-- Function(函数)
+- Boolean,
 
-其他还有 Array(数组)、Date(日期)、RegExp(正则表达式)、特殊的基本包装类型(String、Number、Boolean) 以及单体内置对象(Global、Math)等 引用类型的值是对象。
+- Symbol,
 
-## 数据类型检测方案
+- null,
+
+- undefined
+
+Reference type (complex data type): Stored in heap memory, the stack memory stores the variable identifier of the object and the storage address of the object in the heap memory.
+
+- Object
+
+- Function
+
+Others include Array, Date, RegExp, special basic package types (String, Number, Boolean) and single built-in objects (Global, Math), etc. The value of the reference type is an object.
+
+## Data type detection scheme
 
 ### typeof
 
@@ -38,24 +44,24 @@ console.log(typeof null); // object
 console.log(typeof undefined); // undefined
 ```
 
-优点：能够快速区分基本数据类型
+Advantages: can quickly distinguish basic data types
 
-缺点：不能将 Object、Array 和 Null 区分，都返回 object
+Disadvantages: cannot distinguish between Object, Array and Null, all return object
 
 ### instanceof
 
 ```javascript
 console.log(1 instanceof Number); // false
 console.log(true instanceof Boolean); // false
-console.log("str" instanceof String); // false
+console.log("str" ​​instanceof String); // false
 console.log([] instanceof Array); // true
 console.log(function () {} instanceof Function); // true
 console.log({} instanceof Object); // true
 ```
 
-优点：能够区分 Array、Object 和 Function，适合用于判断自定义的类实例对象
+Advantages: Able to distinguish between Array, Object and Function, suitable for judging custom class instance objects
 
-缺点：Number，Boolean，String 基本数据类型不能判断
+Disadvantages: Cannot judge Number, Boolean, String basic data types
 
 ### Object.prototype.toString.call()
 
@@ -71,291 +77,304 @@ console.log(toString.call(undefined)); //[object Undefined]
 console.log(toString.call(null)); //[object Null]
 ```
 
-优点：精准判断数据类型
+Advantages: Accurately determine data types
 
-缺点：写法繁琐不容易记，推荐进行封装后使用
+Disadvantages: The writing is cumbersome and not easy to remember. It is recommended to encapsulate and use
 
 ## var && let && const
 
-ES6 之前创建变量用的是 var,之后创建变量用的是 let/const
+Before ES6, var was used to create variables, and let/const was used to create variables afterwards
 
-三者区别：
+Differences between the three:
 
-- var 定义的变量，没有块的概念，可以跨块访问, 不能跨函数访问;
-- let 定义的变量，只能在块作用域里访问，不能跨块访问，也不能跨函数访问;
-- const 用来定义常量，使用时必须初始化(即必须赋值)，只能在块作用域里访问，且不能修改;
-- var 可以先使用，后声明，因为存在变量提升；let 必须先声明后使用;
-- var 是允许在相同作用域内重复声明同一个变量的，而 let 与 const 不允许这一现象;
-- 在全局上下文中，基于 let 声明的全局变量和全局对象 GO（window）没有任何关系;
-- var 声明的变量会和 GO 有映射关系;
-- 会产生暂时性死区:
+- Variables defined by var have no concept of blocks and can be accessed across blocks, but not across functions;
+- Variables defined by let can only be accessed in the block scope, not across blocks or across functions;
+- const is used to define constants, and must be initialized (i.e., must be assigned a value) when used. It can only be accessed in the block scope and cannot be modified;
+- var can be used first and declared later because of variable promotion; let must be declared first and used later;
+- var It is allowed to repeatedly declare the same variable in the same scope, while let and const do not allow this phenomenon;
+- In the global context, global variables declared based on let have no relationship with the global object GO (window);
+- Variables declared by var will have a mapping relationship with GO;
+- A temporary dead zone will be generated:
 
 :::tip
-暂时性死区是浏览器的 bug：检测一个未被声明的变量类型时，不会报错，会返回 undefined
+The temporary dead zone is a bug in the browser: when detecting an undeclared variable type, no error will be reported, and undefined will be returned
 
-如：console.log(typeof a) //undefined
+For example: console.log(typeof a) //undefined
 
-而：console.log(typeof a)//未声明之前不能使用
+And: console.log(typeof a) //cannot be used before declaration
 
 let a
 :::
 
-- let /const/function 会把当前所在的大括号(除函数之外)作为一个全新的块级上下文，应用这个机制，在开发项目的时候，遇到循环事件绑定等类似的需求，无需再自己构建闭包来存储，只要基于 let 的块作用特征即可解决。
+- let /const/function will treat the current curly braces (except functions) as a new block-level context. Applying this mechanism, when developing a project, if you encounter similar requirements such as loop event binding, you don’t need to build a closure to store it yourself. You can solve it based on the block action feature of let.
 
-## 垃圾回收机制
+## Garbage collection mechanism
 
-1. 项目中，如果存在大量不被释放的内存（堆/栈/上下文），页面性能会变得很慢。当某些代码操作不能被合理释放，就会造成内存泄漏。我们尽可能减少使用闭包，因为它会消耗内存;
-2. 浏览器垃圾回收机制/内存回收机制;
+1. In the project, if there is a large amount of unreleased memory (heap/stack/context), the page performance will become very slow. When some code operations cannot be released reasonably, memory leaks will occur. We try to reduce the use of closures as much as possible because it consumes memory;
 
-> 浏览器的 Javascript 具有自动垃圾回收机制(GC:Garbage Collecation)，垃圾收集器会定期（周期性）找出那些不在继续使用的变量，然后释放其内存。
+2. Browser garbage collection mechanism/memory recycling mechanism;
 
-- 标记清除:在 js 中，最常用的垃圾回收机制是标记清除：当变量进入执行环境时，被标记为“进入环境”，当变量离开执行环境时，会被标记为“离开环境”。垃圾回收器会销毁那些带标记的值并回收它们所占用的内存空间。
-- 谷歌浏览器：“查找引用”，浏览器不定时去查找当前内存的引用，如果没有被占用了，浏览器会回收它；如果被占用，就不能回收。
-- IE 浏览器：“引用计数法”，当前内存被占用一次，计数累加 1 次，移除占用就减 1，减到 0 时，浏览器就回收它。
+> The browser's Javascript has an automatic garbage collection mechanism (GC: Garbage Collecation). The garbage collector will periodically (periodically) find out those variables that are no longer in use and then release their memory.
 
-3. 优化手段：内存优化 ; 手动释放：取消内存的占用即可。
+- Mark-sweep: In js, the most commonly used garbage collection mechanism is mark-sweep: when a variable enters the execution environment, it is marked as "entering the environment", and when the variable leaves the execution environment, it is marked as "leaving the environment". The garbage collector will destroy those marked values ​​and recycle the memory space they occupy.
 
-- 栈内存：把上下文中，被外部占用的堆的占用取消即可。
-- 堆内存：fn = null 【null：空指针对象】
+- Google Chrome: "Find references", the browser will periodically find references to the current memory. If it is not occupied, the browser will recycle it; if it is occupied, it cannot be recycled.
+- IE browser: "reference counting method", the current memory is occupied once, the count is accumulated by 1, and the occupation is removed and reduced by 1. When it is reduced to 0, the browser recycles it.
 
-4. 内存泄漏
+3. Optimization means: memory optimization; manual release: cancel the memory occupation.
 
-在 JS 中，常见的内存泄露主要有 4 种,全局变量、闭包、DOM 元素的引用、定时器
+- Stack memory: cancel the heap occupation occupied by the outside in the context.
 
-## 作用域和作用域链
+- Heap memory: fn = null [null: null pointer object]
 
-创建函数的时候，已经声明了当前函数的作用域 ==> `当前创建函数所处的上下文`。如果是在全局下创建的函数就是`[[scope]]:EC(G)`，函数执行的时候，形成一个全新的私有上下文 `EC(FN)`，供字符串代码执行(进栈执行)
+4. Memory leak
 
-定义：简单来说作用域就是变量与函数的可访问范围，`由当前环境与上层环境的一系列变量对象组成`
+In JS, there are 4 common memory leaks: global variables, closures, DOM element references, and timers
 
-1. 全局作用域：代码在程序的任何地方都能被访问，window 对象的内置属性都拥有全局作用域。
-2. 函数作用域：在固定的代码片段才能被访问
+## Scope and scope chain
 
-作用：作用域最大的用处就是`隔离变量`，不同作用域下同名变量不会有冲突。
+When creating a function, the scope of the current function has been declared ==> `The context in which the current function is created`. If the function is created in the global context, it is `[[scope]]:EC(G)`. When the function is executed, a new private context `EC(FN)` is formed for the string code to execute (pushing into the stack)
 
-作用域链参考链接一般情况下，变量到 创建该变量 的函数的作用域中取值。但是如果在当前作用域中没有查到，就会向上级作用域去查，直到查到全局作用域，这么一个查找过程形成的链条就叫做作用域链。
+Definition: In simple terms, the scope is the accessible range of variables and functions, `consisting of a series of variable objects in the current environment and the upper environment`
 
-## 闭包
+1. Global scope: Code can be accessed anywhere in the program, and the built-in properties of the window object have a global scope.
 
-`闭包的两大作用保存/保护`
+2. Function scope: It can only be accessed in a fixed code snippet
 
-### 概念
+Function: The biggest use of the scope is to `isolate variables`, and there will be no conflict between variables with the same name in different scopes.
 
-函数执行时形成的私有上下文 EC(FN)，正常情况下，代码执行完会出栈后释放;但是特殊情况下，如果当前私有上下文中的某个东西被上下文以外的事物占用了，则上下文不会出栈释放，从而形成不销毁的上下文。 函数执行函数执行过程中，会形成一个全新的私有上下文，可能会被释放，可能不会被释放，不论释放与否，他的作用是：
+Scope chain reference link In general, variables are taken from the scope of the function that created the variable. However, if it is not found in the current scope, it will be searched in the upper scope until the global scope is found. The chain formed by such a search process is called a scope chain.
 
-- 保护：划分一个独立的代码执行区域，在这个区域中有自己私有变量存储的空间，保护自己的私有变量不受外界干扰（操作自己的私有变量和外界没有关系）；
-- 保存：如果当前上下文不被释放【只要上下文中的某个东西被外部占用即可】，则存储的这些私有变量也不会被释放，可以供其下级上下文中调取使用，相当于把一些值保存起来了；
+## Closure
 
-我们把函数执行形成私有上下文，来保护和保存私有变量机制称为`闭包`。
+`The two main functions of closures are preservation/protection`
+
+### Concept
+
+The private context EC(FN) formed when a function is executed, under normal circumstances, will be released after the code is executed; but in special circumstances, if something in the current private context is occupied by something outside the context, the context will not be released, thus forming an undestroyed context. Function Execution During the function execution process, a new private context will be formed, which may be released or not. Regardless of whether it is released or not, its functions are:
+
+- Protection: Divide an independent code execution area, in which there is space for storing private variables, protecting private variables from external interference (operating private variables has nothing to do with the outside world);
+
+- Preservation: If the current context is not released [as long as something in the context is occupied by the outside], the stored private variables will not be released either, and can be used in its subordinate context, which is equivalent to saving some values;
+
+We call the mechanism of forming a private context by function execution to protect and save private variables `closure`.
 
 :::tip
-闭包是指有权访问另一个函数作用域中的变量的函数 《JavaScript 高级程序设计》
+A closure is a function that has access to variables in another function's scope. "Advanced JavaScript Programming"
 
-稍全面的回答： 在 js 中变量的作用域属于函数作用域, 在函数执行完后,作用域就会被清理,内存也会随之被回收,但是由于闭包函数是建立在函数内部的子函数, 由于其可访问上级作用域,即使上级函数执行完, 作用域也不会随之销毁, 这时的子函数(也就是闭包),便拥有了访问上级作用域中变量的权限,即使上级函数执行完后作用域内的值也不会被销毁。
+A slightly more comprehensive answer: In js, the scope of variables belongs to the function scope. After the function is executed, the scope will be cleaned up and the memory will be recycled. However, since the closure function is a sub-function built inside the function, it can access the parent scope. Even if the parent function is executed, the scope will not be destroyed. At this time, the sub-function (that is, the closure) has the right to access the variables in the parent scope, and the values ​​in the scope will not be destroyed even after the parent function is executed.
 :::
 
-### 特性
+### Features
 
-1. 内部函数可以访问定义他们外部函数的参数和变量。(作用域链的向上查找，把外围的作用域中的变量值存储在内存中而不是在函数调用完毕后销毁)设计私有的方法和变量，避免全局变量的污染;
-   1. 闭包是密闭的容器，，类似于 set、map 容器，存储数据的
-   2. 闭包是一个对象，存放数据的格式为 key-value 形式
-2. 函数嵌套函数;
-3. 本质是将函数内部和外部连接起来。优点是可以读取函数内部的变量，让这些变量的值始终保存在内存中，不会在函数被调用之后自动清除。
+1. Internal functions can access the parameters and variables that define their external functions. (Looking up the scope chain, storing the variable values ​​in the outer scope in memory instead of destroying them after the function call is completed) Design private methods and variables to avoid global variable pollution;
+1. Closure is a closed container, similar to set and map containers, which stores data
+2. Closure is an object, and the format of storing data is key-value form
+2. Function nesting function;
+3. The essence is to connect the inside and outside of the function. The advantage is that the variables inside the function can be read, so that the values ​​of these variables are always saved in memory and will not be automatically cleared after the function is called.
 
-### 形成的条件
+### Formation conditions
 
-1. 函数的嵌套;
-2. 内部函数引用外部函数的局部变量，延长外部函数的变量生命周期。
+1. Function nesting;
 
-### 用途
+2. The internal function references the local variables of the external function to extend the variable life cycle of the external function.
 
-- 模仿块级作用域;
-- 保护外部函数的变量 能够访问函数定义时所在的词法作用域(阻止其被回收);
-- 封装私有化变量;
-- 创建模块.
+### Purpose
 
-### 应用场景
+- Imitate block-level scope;
+- Protect variables of external functions and be able to access the lexical scope where the function is defined (prevent it from being recycled);
+- Encapsulate private variables;
+- Create modules.
 
-闭包的两个场景，闭包的两大作用：`保存/保护`。
+### Application scenarios
 
-在开发中, 其实我们随处可见闭包的身影, 大部分前端 JavaScript 代码都是“事件驱动”的,即一个事件绑定的回调方法; 发送 ajax 请求成功|失败的回调;setTimeout 的延时回调;或者一个函数内部返回另一个匿名函数,这些都是闭包的应用。
+Two scenarios of closures, two major functions of closures: `save/protect`.
 
-### 优缺点
+In development, we can actually see closures everywhere. Most front-end JavaScript codes are "event-driven", that is, a callback method bound to an event; callbacks for success or failure of sending an ajax request; setTimeout's delayed callback; or returning another anonymous function inside a function, these are all applications of closures.
 
-- 闭包的优点：延长局部变量的生命周期
-- 闭包缺点：会导致函数的变量一直保存在内存中，过多的闭包可能会导致内存泄漏
+### Advantages and Disadvantages
 
-## this 的五种情况
+- Advantages of closures: extend the life cycle of local variables
+- Disadvantages of closures: cause the variables of the function to be kept in memory all the time, and too many closures may cause memory leaks
 
-- 作为`普通函数执行时`，this 指向 window。
-- 当`函数作为对象的方法被调用时`，this 就会指向该对象。
-- `构造器调用`，this 指向返回的这个对象。
-- `箭头函数`的 this 绑定看的是 this 所在函数定义在哪个对象下，就绑定哪个对象。如果有嵌套的情况，则 this 绑定到最近的一层对象上。
-- 基于 Function.prototype 上的 `apply 、 call 和 bind 调用模式`，这三个方法都可以显示的指定调用函数的 this 指向。apply 接收参数的是数组，call 接受参数列表，``bind方法通过传入一个对象，返回一个 this 绑定了传入对象的新函数。这个函数的 this指向除了使用new`时会被改变，其他情况下都不会改变。若为空默认是指向全局对象 window。
+## Five cases of this
 
-## 原型 && 原型链
+- When `normal function execution`, this points to window.
 
-原型关系:
+- When `the function is called as a method of an object`, this points to the object.
+- `Constructor call`, this points to the returned object.
+- The this binding of the `arrow function` depends on the object under which the function where this is located is defined. If there is a nested situation, this is bound to the nearest layer of object.
+- Based on the `apply, call and bind calling modes` on Function.prototype, these three methods can explicitly specify the this pointer of the calling function. apply receives an array of parameters, call accepts a parameter list, and the ``bind method returns a this bound to the passed object by passing in an object.
+A new function. The this pointer of this function will not change except when new` is used. If it is empty, it points to the global object window by default.
 
-- 每个 class 都有显示原型 prototype
-- 每个实例都有隐式原型 _ proto_
-- 实例的* proto*指向对应 class 的 prototype
+## Prototype && Prototype chain
 
-原型: 在 JS 中，每当定义一个对象（函数也是对象）时，对象中都会包含一些预定义的属性。其中每个函数对象都有一个 prototype 属性，这个属性指向函数的原型对象。
+Prototype relationship:
 
-原型链：函数的原型链对象 constructor 默认指向函数本身，原型对象除了有原型属性外，为了实现继承，还有一个原型链指针**proto**,该指针是指向上一层的原型对象，而上一层的原型对象的结构依然类似。因此可以利用**proto**一直指向 Object 的原型对象上，而 Object 原型对象用 Object.prototype.** proto** = null 表示原型链顶端。如此形成了 js 的原型链继承。同时所有的 js 对象都有 Object 的基本防范
+- Each class has a displayed prototype prototype
 
-特点: JavaScript 对象是通过引用来传递的，我们创建的每个新对象实体中并没有一份属于自己的原型副本。当我们修改原型时，与之相关的对象也会继承这一改变。
+- Each instance has an implicit prototype _ proto_
 
-## new 运算符的实现机制
+- The * proto* of the instance points to the prototype of the corresponding class
 
-- 首先创建了一个新的空对象;
-- 设置原型，将对象的原型设置为函数的 prototype 对象;
-- 让函数的 this 指向这个对象，执行构造函数的代码（为这个新对象添加属性）;
-- 判断函数的返回值类型，如果是值类型，返回创建的对象。如果是引用类型，就返回这个引用类型的对象。
+Prototype: In JS, whenever an object is defined (a function is also an object), the object will contain some predefined properties. Each function object has a prototype property, which points to the prototype object of the function.
 
-## EventLoop 事件循环
+Prototype chain: The prototype chain object constructor of the function points to the function itself by default. In addition to the prototype property, the prototype object also has a prototype chain pointer **proto** in order to achieve inheritance. The pointer points to the prototype object of the upper layer, and the structure of the prototype object of the upper layer is still similar. Therefore, **proto** can be used to point to the prototype object of Object, and the Object prototype object uses Object.prototype.** proto** = null to indicate the top of the prototype chain. This forms the prototype chain inheritance of js. At the same time, all js objects have the basic defense of Object
 
-JS 是单线程的，为了防止一个函数执行时间过长阻塞后面的代码，所以会先将同步代码压入执行栈中，依次执行，将异步代码推入异步队列，异步队列又分为宏任务队列和微任务队列，因为宏任务队列的执行时间较长，所以微任务队列要优先于宏任务队列。`微任务队列的代表是: Promise.then，MutationObserver`，`宏任务的是: setImmediate setTimeout setInterval`。
+Features: JavaScript objects are passed by reference, and each new object entity we create does not have its own copy of the prototype. When we modify the prototype, the objects related to it will also inherit the change.
 
-JS 运行的环境。一般为浏览器或者 Node。 在浏览器环境中，有 JS 引擎线程和渲染线程，且两个线程互斥。 Node 环境中，只有 JS 线程。 不同环境执行机制有差异，不同任务进入不同 Event Queue 队列。 当主程结束，先执行准备好微任务，然后再执行准备好的宏任务，一个轮询结束。
+## Implementation mechanism of the new operator
 
-## 浏览器中的事件环(Event Loop)
+- First, a new empty object is created;
+- Set the prototype, set the prototype of the object to the prototype object of the function;
+- Let the this of the function point to this object, and execute the code of the constructor (add properties to this new object);
+- Determine the return value type of the function. If it is a value type, return the created object. If it is a reference type, return the object of this reference type.
 
-事件环的运行机制是，先会执行栈中的内容，栈中的内容执行后执行微任务，微任务清空后再执行宏任务，先取出一个宏任务，再去执行微任务，然后在取宏任务清微任务这样不停的循环。
+## EventLoop event loop
 
-- eventLoop 是由 JS 的宿主环境（浏览器）来实现的;
-- 事件循环可以简单的描述为以下四个步骤:
-  1. 函数入栈，当 Stack 中执行到异步任务的时候，就将他丢给 WebAPIs,接着执行同步任务,直到 Stack 为空;
-  2. 此期间 WebAPIs 完成这个事件，把回调函数放入队列中等待执行（微任务放到微任务队列，宏任务放到宏任务队列）;
-  3. 执行栈为空时，Event Loop 把微任务队列执行清空;
-  4. 微任务队列清空后，进入宏任务队列，取队列的第一项任务放入 Stack(栈)中执行，执行完成后，查看微任务队列是否有任务，有的话，清空微任务队列。重复 4，继续从宏任务中取任务执行，执行完成之后，继续清空微任务，如此反复循环，直至清空所有的任务。
+JS is single-threaded. In order to prevent a function from blocking the subsequent code due to a long execution time, the synchronous code will be pushed into the execution stack first, and executed in sequence, and the asynchronous code will be pushed into the asynchronous queue. The asynchronous queue is divided into a macro task queue and a micro task queue. Because the execution time of the macro task queue is longer, the micro task queue should take precedence over the macro task queue. `The representatives of microtask queue are: Promise.then, MutationObserver`, and `the representatives of macrotask are: setImmediate setTimeout setInterval`.
+
+The environment where JS runs. Generally, it is a browser or Node. In the browser environment, there are JS engine threads and rendering threads, and the two threads are mutually exclusive. In the Node environment, there is only a JS thread. The execution mechanisms of different environments are different, and different tasks enter different Event Queue queues. When the main program ends, the prepared microtasks are executed first, and then the prepared macrotasks are executed, and a polling ends.
+
+## Event Loop in the Browser
+
+The operating mechanism of the event loop is that the contents in the stack will be executed first, and then the microtasks will be executed after the contents in the stack are executed. After the microtasks are cleared, the macrotasks will be executed. First, a macrotask will be taken out, and then the microtasks will be executed, and then the macrotasks will be taken out and the microtasks will be cleared. This cycle continues.
+
+- eventLoop is implemented by the host environment (browser) of JS;
+- The event loop can be simply described as the following four steps:
+1. The function is pushed into the stack. When the asynchronous task is executed in the Stack, it is thrown to WebAPIs, and then the synchronous task is executed until the Stack is empty;
+2. During this period, WebAPIs completes the event and puts the callback function into the queue for execution (microtasks are put into the microtask queue, and macrotasks are put into the macrotask queue);
+3. When the execution stack is empty, Event Loop clears the microtask queue;
+4. After the microtask queue is cleared, enter the macrotask queue, take the first task in the queue and put it into the Stack for execution. After the execution is completed, check whether there is a task in the microtask queue. If there is, clear the microtask queue. Repeat 4, continue to take tasks from the macrotask for execution, and after the execution is completed, continue to clear the microtask, and repeat the cycle until all tasks are cleared.
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/342e581223d2471d9484fc48beb9f8e1~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
 
-- 浏览器中的任务源(task):
-  - 宏任务(macrotask): 宿主环境提供的，比如浏览器 ajax、setTimeout、setInterval、setTmmediate(只兼容 ie)、script、requestAnimationFrame、messageChannel、UI 渲染、一些浏览器 api
-  - 微任务(microtask): 语言本身提供的，比如 promise.then、then、queueMicrotask(基于 then)、mutationObserver(浏览器提供)、messageChannel、mutationObersve
+- Task source in the browser (task):
+- Macrotask: provided by the host environment, such as browser ajax, setTimeout, setInterval, setTmmediate (only compatible with ie), script, requestAnimationFrame, messageChannel, UI rendering, some browser APIs
+- Microtask: provided by the language itself, such as promise.then, then, queueMicrotask (based on then), mutationObserver (provided by the browser), messageChannel, mutationObersve
 
-## Node 环境中的事件环(Event Loop)
+## Node Event Loop in the Environment
 
-Node 是基于 V8 引擎的运行在服务端的 JavaScript 运行环境，在处理高并发、I/O 密集(文件操作、网络操作、数据库操作等)场景有明显的优势。虽然用到也是 V8 引擎，但由于服务目的和环境不同，导致了它的 API 与原生 JS 有些区别，其 Event Loop 还要处理一些 I/O，比如新的网络连接等，所以 Node 的 Event Loop(事件环机制)与浏览器的是不太一样。
+Node is a JavaScript runtime environment based on the V8 engine that runs on the server. It has obvious advantages in handling high-concurrency, I/O-intensive (file operations, network operations, database operations, etc.) scenarios. Although it also uses the V8 engine, its API is somewhat different from native JS due to different service purposes and environments. Its Event Loop also handles some I/O, such as new network connections, so Node's Event Loop (event loop mechanism) is different from that of the browser.
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e362c1770f62428fbf3faabd99d2a64c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
 
-执行顺序如下：
+The execution order is as follows:
 
-- timers: 计时器，执行 setTimeout 和 setInterval 的回调;
-- pending callbacks: 执行延迟到下一个循环迭代的 I/O 回调;
-- idle, prepare: 队列的移动，仅系统内部使用;
-- poll 轮询: 检索新的 I/O 事件;执行与 I/O 相关的回调。事实上除了其他几个阶段处理的事情，其他几乎所有的异步都在这个阶段处理;
-- check: 执行 setImmediate 回调，setImmediate 在这里执行;
-- close callbacks: 执行 close 事件的 callback，一些关闭的回调函数，如：socket.on('close', ...)
+- timers: timers, execute callbacks of setTimeout and setInterval;
 
-## setTimeout、Promise、Async/Await 的区别
+- pending callbacks: execute I/O callbacks delayed to the next loop iteration;
+
+- idle, prepare: queue movement, only used internally by the system;
+
+- poll polling: retrieve new I/O events; execute callbacks related to I/O. In fact, except for the things handled in other stages, almost all other asynchronous operations are handled in this stage;
+- check: execute the setImmediate callback, setImmediate is executed here;
+- close callbacks: execute the callback of the close event, some closing callback functions, such as: socket.on('close', ...)
+
+## The difference between setTimeout, Promise, and Async/Await
 
 ### setTimeout
 
-setTimeout 的回调函数放到宏任务队列里，等到执行栈清空以后执行。
+The callback function of setTimeout is placed in the macro task queue and executed after the execution stack is cleared.
 
 ### Promise
 
-Promise 本身是同步的立即执行函数， 当在 executor 中执行 resolve 或者 reject 的时候, 此时是异步操作， 会先执行 then/catch 等，当主栈完成后，才会去调用 resolve/reject 中存放的方法执行。
+Promise itself is a synchronous immediate execution function. When resolve or reject is executed in the executor, it is an asynchronous operation at this time. Then/catch will be executed first. When the main stack is completed, the method stored in resolve/reject will be called for execution.
 
 ```javascript
 console.log("script start");
 let promise1 = new Promise(function (resolve) {
-  console.log("promise1");
-  resolve();
-  console.log("promise1 end");
+console.log("promise1");
+resolve();
+console.log("promise1 end");
 }).then(function () {
-  console.log("promise2");
+console.log("promise2");
 });
 setTimeout(function () {
-  console.log("settimeout");
+console.log("settimeout");
 });
 console.log("script end");
-// 输出顺序: script start->promise1->promise1 end->script end->promise2->settimeout
+// Output order: script start->promise1->promise1 end->script end->promise2->settimeout
 ```
 
 ### async/await
 
-async 函数返回一个 Promise 对象，当函数执行的时候，一旦遇到 await 就会先返回，等到触发的异步操作完成，再执行函数体内后面的语句。可以理解为，是让出了线程，跳出了 async 函数体。
+The async function returns a Promise object. When the function is executed, once await is encountered, it will return first, wait until the triggered asynchronous operation is completed, and then execute the following statements in the function body. It can be understood as giving up the thread and jumping out of the async function body.
 
 ```javascript
 async function async1() {
-  console.log("async1 start");
-  await async2();
-  console.log("async1 end");
+console.log("async1 start");
+await async2();
+console.log("async1 end");
 }
 async function async2() {
-  console.log("async2");
+console.log("async2");
 }
 
 console.log("script start");
 async1();
 console.log("script end");
-// 输出顺序：script start->async1 start->async2->script end->async1 end
+// Output order: script start->async1 start->async2->script end->async1 end
 ```
 
-## Async/Await 如何通过同步的方式实现异步
+## How to achieve asynchrony in Async/Await through synchronization
 
-Async/Await 就是一个自执行的 generate 函数。利用 generate 函数的特性把异步的代码写成“同步”的形式,第一个请求的返回值作为后面一个请求的参数,其中每一个参数都是一个 promise 对象.
+Async/Await is a self-executing generate function. Using the characteristics of the generate function, the asynchronous code is written in a "synchronous" form. The return value of the first request is used as the parameter of the next request, and each parameter is a promise object.
 
-## 介绍节流防抖原理、区别以及应用
+## Introduce the principle, difference and application of throttling and anti-shaking
 
-- `节流`：事件触发后，规定时间内，事件处理函数不能再次被调用。也就是说在规定的时间内，函数只能被调用一次，且是最先被触发调用的那次。
+- `Throttling`: After the event is triggered, the event processing function cannot be called again within the specified time. That is to say, within the specified time, the function can only be called once, and it is the first time it is triggered.
 
-- `防抖`：多次触发事件，事件处理函数只能执行一次，并且是在触发操作结束时执行。也就是说，当一个事件被触发准备执行事件函数前，会等待一定的时间（这时间是码农自己去定义的，比如 1 秒），如果没有再次被触发，那么就执行，如果被触发了，那就本次作废，重新从新触发的时间开始计算，并再次等待 1 秒，直到能最终执行！
+- `Anti-shake`: If an event is triggered multiple times, the event processing function can only be executed once, and it is executed at the end of the triggering operation. That is to say, when an event is triggered and ready to execute the event function, it will wait for a certain time (this time is defined by the programmer himself, such as 1 second). If it is not triggered again, it will be executed. If it is triggered, then this time will be invalidated and the calculation will start from the new trigger time, and wait for 1 second again until it can be finally executed!
 
-`使用场景`：
-节流：滚动加载更多、搜索框搜的索联想功能、高频点击、表单重复提交……
-防抖：搜索框搜索输入，并在输入完以后自动搜索、手机号，邮箱验证输入检测、窗口大小 resize 变化后，再重新渲染。
+`Usage scenario`:
+Throttling: scrolling to load more, search box search association function, high-frequency clicks, repeated form submission...
+Anti-shake: search box search input, and automatically search after input, mobile phone number, email verification input detection, window size resize change, and then re-render.
 
 ```javascript
 /**
- * 节流函数 一个函数执行一次后，只有大于设定的执行周期才会执行第二次。有个需要频繁触发的函数，出于优化性能的角度，在规定时间内，只让函数触发的第一次生效，后面的不生效。
- * @param fn要被节流的函数
- * @param delay规定的时间
- */
+* Throttling function After a function is executed once, it will only be executed a second time if it is greater than the set execution cycle. There is a function that needs to be triggered frequently. To optimize performance, only the first time the function is triggered is effective within the specified time, and the subsequent ones are not effective.
+* @param fn function to be throttled
+* @param delay specified time
+*/
 function throttle(fn, delay) {
-  //记录上一次函数触发的时间
-  var lastTime = 0;
-  return function () {
-    //记录当前函数触发的时间
-    var nowTime = Date.now();
-    if (nowTime - lastTime > delay) {
-      //修正this指向问题
-      fn.call(this);
-      //同步执行结束时间
-      lastTime = nowTime;
-    }
-  };
+//Record the time when the last function was triggered
+var lastTime = 0;
+return function () {
+//Record the time when the current function was triggered
+var nowTime = Date.now();
+if (nowTime - lastTime > delay) {
+//Fix this pointing problem
+fn.call(this);
+//Synchronous execution end time
+lastTime = nowTime;
+}
+};
 }
 
 document.onscroll = throttle(function () {
-  console.log("scllor事件被触发了" + Date.now());
+console.log("scllor event was triggered" + Date.now());
 }, 200);
 
 /**
- * 防抖函数  一个需要频繁触发的函数，在规定时间内，只让最后一次生效，前面的不生效
- * @param fn要被节流的函数
- * @param delay规定的时间
- */
+* Anti-shake function A function that needs to be triggered frequently. Within the specified time, only the last one will take effect, and the previous ones will not take effect
+* @param fn function to be throttled
+* @param delay specified time
+*/
 function debounce(fn, delay) {
-  //记录上一次的延时器
+  //Record the last delay
   var timer = null;
   return function () {
-    //清除上一次的演示器
+    // Clear the last demonstrator
     clearTimeout(timer);
-    //重新设置新的延时器
+    // ReSet a new delay timer
     timer = setTimeout(() => {
-      //修正this指向问题
+      //Fix this pointing problem
       fn.apply(this);
     }, delay);
   };
 }
 document.getElementById("btn").onclick = debounce(function () {
-  console.log("按钮被点击了" + Date.now());
+console.log("Button was clicked" + Date.now());
 }, 1000);
 ```

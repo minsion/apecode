@@ -1,28 +1,28 @@
-# Vue3
+#Vue3
 
-## vue3 相较 vue2 做了哪些优化？
+## What optimizations has vue3 done compared to vue2?
 
-### 性能提升
+### Performance improvements
 
-- `更快的渲染速度`：Vue 3 在初始化、更新和销毁组件方面的性能都有显著提升，得益于虚拟 DOM 的优化和编译时性能增强。
-- `更小的包体积`：Vue 3 通过 Tree Shaking 进一步减小了包体积，使得未使用的功能在打包时可以被移除。
-- `编译时优化`：模板编译器进行了改进，可以生成更高效的渲染函数，并支持静态提升和预编译等优化手段。
+- `Faster Rendering`: Vue 3 has significantly improved performance in initializing, updating and destroying components, thanks to virtual DOM optimizations and compile-time performance enhancements.
+- `Smaller package size`: Vue 3 further reduces the package size through Tree Shaking, so that unused functions can be removed during packaging.
+- `Compile-time optimization`: The template compiler has been improved to generate more efficient rendering functions and supports optimization methods such as static promotion and pre-compilation.
 
 ### Composition API
 
-- `更好的代码组织`：Composition API 提供了一种基于函数的代码组织方式，使得逻辑复用和代码可读性更强。
-- `更好的类型支持`：Composition API 使得 TypeScript 类型推断更加自然和强大
+- `Better code organization`: Composition API provides a function-based code organization method, making logic reuse and code more readable.
+- `Better type support`: Composition API makes TypeScript type inference more natural and powerful
 
-### 新的响应式系统
+### New responsive system
 
-- vue2 采用的是 object.defineProperty。在一些属性进行操作时，使用这种返方法无法拦截，包括为对象添加没有的新属性，或删除某一个属性，以数组下标的形式更改数组，ViewModel 是监听不到的，需要调用 vue.$set()方法再去更改响应式数据。
-- vue3 采用 ES6 提出的 proxy 代理。它相当于内置了 set、delete 这些执行器，代理的是整个对象，而非是对象的属性，对于数组的话，在 vue3 内部都重写了数组的方法。
+- vue2 uses object.defineProperty. When operating on some properties, this return method cannot be intercepted, including adding new properties that are not available to the object, or deleting a certain property, or changing the array in the form of an array subscript. ViewModel cannot monitor it, and vue.$ needs to be called. The set() method then changes the responsive data.
+- vue3 uses the proxy proxy proposed by ES6. It is equivalent to built-in executors such as set and delete. It proxies the entire object instead of the properties of the object. For arrays, the array methods are overridden inside vue3.
 
-### Diff 算法优化
+### Diff algorithm optimization
 
-- Vue 2 使用的是基于`双端比较`（即比较新旧两棵树的同一位置，直到发现有差异的位置）的虚拟 DOM diff 算法，虽然简单直观，但在处理复杂和大规模节点变更时，性能不如 Vue 3 优秀。
-- Vue 3 采用了基于`单端比较和 LIS `（基于位运算，在首尾进行标记，再从中间比较，通过位运算来减少判断次数）的优化算法，显著提升了 diff 过程中的性能和效率，尤其是在处理大规模和复杂的节点变更时表现更佳。同时，通过静态提升和 Block Tree 等编译时优化，进一步减少了不必要的对比和 DOM 操作。
+- Vue 2 uses a virtual DOM diff algorithm based on `double-ended comparison` (that is, comparing the same position of the old and new trees until a difference is found). Although it is simple and intuitive, it is not effective when dealing with complex and large-scale node changes. , the performance is not as good as Vue 3.
+- Vue 3 adopts an optimization algorithm based on `single-ended comparison and LIS` (based on bit operations, marking the beginning and end, and then comparing from the middle, using bit operations to reduce the number of judgments), which significantly improves the performance and performance of the diff process. Efficiency, especially when handling large-scale and complex node changes, is better. At the same time, unnecessary comparisons and DOM operations are further reduced through compile-time optimizations such as static promotion and Block Tree.
 
-## 参考
+## refer to
 
-[vue3 相对于 vue2 做了哪些优化 - 不减 20 斤不改头像 📝](https://juejin.cn/post/7205504065504477243)
+[What optimizations has vue3 done compared to vue2 - Don’t lose 20 pounds and don’t change your avatar 📝](https://juejin.cn/post/7205504065504477243)

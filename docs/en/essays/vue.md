@@ -1,274 +1,287 @@
 # Vue
 
-## 简述 MVVM
+## Brief introduction to MVVM
 
-### 什么是 MVVM？
+### What is MVVM?
 
-`视图模型双向绑定`，是 `Model-View-ViewModel` 的缩写，也就是把 MVC 中的 Controller 演变成 ViewModel。Model 层代表数据模型，View 代表 UI 组件，ViewModel 是 View 和 Model 层的桥梁，数据会绑定到 ViewModel 层并自动将数据渲染到页面中，视图变化的时候会通知 ViewModel 层更新数据。`以前是操作 DOM 结构更新视图，现在是数据驱动视图`。
+`View-model two-way binding` is the abbreviation of `Model-View-ViewModel`, which means that the Controller in MVC is transformed into ViewModel. The Model layer represents the data model, the View represents the UI component, and the ViewModel is the bridge between the View and Model layers. The data will be bound to the ViewModel layer and automatically rendered to the page. When the view changes, the ViewModel layer will be notified to update the data. `In the past, the DOM structure was operated to update the view, and now the data drives the view`.
 
-### MVVM 的优点
+### Advantages of MVVM
 
-1. `低耦合`。视图（View）可以独立于 Model 变化和修改，一个 Model 可以绑定到不同的 View 上，当 View 变化的时候 Model 可以不变化，当 Model 变化的时候 View 也可以不变；
-2. `可重用性`。你可以把一些视图逻辑放在一个 Model 里面，让很多 View 重用这段视图逻辑。
-3. `独立开发`。开发人员可以专注于业务逻辑和数据的开发(ViewModel)，设计人员可以专注于页面设计。
-4. `可测试`。
+1. `Low coupling`. The view can change and modify independently of the model. A model can be bound to different views. When the view changes, the model can remain unchanged, and when the model changes, the view can remain unchanged;
+
+2. `Reusability`. You can put some view logic in a model and let many views reuse this view logic.
+
+3. `Independent development`. Developers can focus on the development of business logic and data (ViewModel), and designers can focus on page design.
+4. `Testable`.
 
 ## Vue
 
 The Progressive JavaScript Framework
-渐进式 JavaScript 框架
+Progressive JavaScript Framework
 
-### 优点
+### Advantages
 
-1. `简单易学`： Vue.js 的设计目标之一是易于学习和上手。其核心库非常轻量，文档清晰，提供了丰富的示例，使初学者能够迅速上手。
-2. `渐进式框架`： Vue.js 是一个渐进式框架，允许你根据需要逐渐引入它的不同部分，如 Vue Router、Vuex 等。这种灵活性对于不同规模和需求的项目都非常有用。
-3. `响应式数据绑定`： Vue.js 提供了强大的数据绑定机制，可以轻松实现视图和数据的同步更新，提高开发效率。
-4. `组件化开发`： Vue.js 鼓励使用组件化的开发方式，将页面拆分为多个可复用的组件，提高代码的可维护性和复用性。
-5. `虚拟 DOM`： Vue.js 使用虚拟 DOM 技术，在数据发生变化时，通过比较虚拟 DOM 和真实 DOM 的差异，减少真实 DOM 操作，从而提升性能。
-6. `文档丰富`： Vue.js 官方文档详尽，提供了大量的示例和解释，方便开发者查阅。
-7. `社区活跃`： Vue.js 拥有庞大的社区，有许多第三方插件和库可以用于解决各种问题。
-8. `生态系统丰富`： 除了核心库，Vue.js 还有大量的生态系统库，如 Vue Router（路由）、Vuex（状态管理）、Vuetify（UI 组件库）等，可以帮助构建更完整的应用。
+1. `Easy to learn`: One of the design goals of Vue.js is to be easy to learn and get started. Its core library is very lightweight, with clear documentation and rich examples, allowing beginners to get started quickly.
+2. `Progressive framework`: Vue.js is a progressive framework that allows you to gradually introduce different parts of it as needed, such as Vue Router, Vuex, etc. This flexibility is very useful for projects of different sizes and needs.
+3. `Responsive data binding`: Vue.js provides a powerful data binding mechanism that can easily achieve synchronous updates of views and data and improve development efficiency.
+4. `Componentized development`: Vue.js encourages the use of componentized development methods to split pages into multiple reusable components to improve the maintainability and reusability of the code.
+5. `Virtual DOM`: Vue.js uses virtual DOM technology. When data changes, it reduces real DOM operations by comparing the differences between virtual DOM and real DOM, thereby improving performance.
+6. `Rich documentation`: Vue.js official documentation is detailed and provides a large number of examples and explanations for developers to consult.
+7. `Active community`: Vue.js has a large community, and there are many third-party plug-ins and libraries that can be used to solve various problems.
+8. `Rich ecosystem`: In addition to the core library, Vue.js also has a large number of ecosystem libraries, such as Vue Router (routing), Vuex (state management), Vuetify (UI component library), etc., which can help build more complete applications.
 
-### 缺点
+### Disadvantages
 
-1. `规模限制`： 尽管 Vue.js 适用于大多数项目，但对于特别大型的应用来说，可能会因为缺乏一些大型框架（如 Angular）的特性而显得不够强大。
-2. `插件质量不一`： 尽管有许多优秀的 Vue.js 插件和库，但并非所有都具有高质量，有时你可能需要在多个选择中做出决策。
-3. `相对新`： 虽然 Vue.js 已经存在一段时间，但相对于一些其他框架（如 Angular 和 React），它的历史相对较短。这可能会影响一些企业在选择技术栈时的决策。
-4. `全局状态管理`： 虽然 Vue.js 提供了 Vuex 用于全局状态管理，但在大型应用中，对于全局状态的管理可能需要更多的工作。
+1. `Scale limitation`: Although Vue.js is suitable for most projects, for particularly large applications, it may not be powerful enough due to the lack of features of some large frameworks (such as Angular).
+2. `Varying plugin quality`: Although there are many excellent Vue.js plugins and libraries, not all of them are of high quality, and sometimes you may need to make a decision among multiple choices.
+3. `Relatively new`: Although Vue.js has been around for a while, it has a relatively short history compared to some other frameworks (such as Angular and React). This may affect some companies' decisions when choosing a technology stack.
+4. `Global state management`: Although Vue.js provides Vuex for global state management, in large applications, the management of global state may require more work.
 
-## Vue 底层实现原理
+## Vue underlying implementation principle
 
-vue.js 是采用`数据劫持结合发布者-订阅者模式`的方式，通过 Object.defineProperty()来劫持各个属性的 setter 和 getter，在数据变动时发布消息给订阅者，触发相应的监听回调。
+vue.js adopts the method of `data hijacking combined with publisher-subscriber mode`, hijacking the setter and getter of each attribute through Object.defineProperty(), publishing messages to subscribers when data changes, triggering corresponding listening callbacks.
 
-Vue 是一个典型的 MVVM 框架，模型（Model）只是普通的 javascript 对象，修改它则视图（View）会自动更新。这种设计让状态管理变得非常简单而直观。
+Vue is a typical MVVM framework. The model is just an ordinary javascript object. If it is modified, the view will be automatically updated. This design makes state management very simple and intuitive.
 
 MVC:
 
-- Model（数据模型） : 数据层，负责业务逻辑和数据处理。
-- View（视图） : 视图层，负责页面展示。
-- Controller（控制器） : 控制层，负责业务逻辑和数据处理。
+- Model (data model): data layer, responsible for business logic and data processing.
+
+- View (view): view layer, responsible for page display.
+
+- Controller (controller): control layer, responsible for business logic and data processing.
 
 MVVM:
 
-- Model（数据模型） : 数据层，负责业务逻辑和数据处理。
-- View（视图） : 视图层。
-- ViewModel（视图模型） : 控制层，负责业务逻辑和数据处理。
+- Model (data model): data layer, responsible for business logic and data processing.
 
-Observer（数据监听器） : Observer 的核心是通过 Object.defineProprtty()来监听数据的变动，这个函数内部可以定义 setter 和 getter，每当数据发生变化，就会触发 setter。这时候 Observer 就要通知订阅者，订阅者就是 Watcher。
+- View (view): view layer.
 
-Watcher（订阅者） : Watcher 订阅者作为 Observer 和 Compile 之间通信的桥梁，主要做的事情是：
+- ViewModel (view model): control layer, responsible for business logic and data processing.
 
-1. 在自身实例化时往属性订阅器(dep)里面添加自己。
-2. 自身必须有一个 update()方法。
-3. 待属性变动 dep.notice()通知时，能调用自身的 update()方法，并触发 Compile 中绑定的回调。
+Observer (data listener): The core of Observer is to monitor data changes through Object.defineProprtty(). Setters and getters can be defined inside this function. Whenever the data changes, the setter will be triggered. At this time, Observer will notify the subscriber, and the subscriber is Watcher.
 
-## 谈谈 vue diff 算法
+Watcher (subscriber): Watcher subscribers serve as a bridge for communication between Observer and Compile. The main things they do are:
 
-Vue.js 使用了一种高效的 diff 算法来更新`虚拟 DOM`，从而提高渲染性能。该算法的核心思想是只更新必要的 DOM 节点。
+1. Add themselves to the property subscriber (dep) when they are instantiated.
+2. It must have an update() method.
+3. When the property changes dep.notice(), it can call its own update() method and trigger the callback bound in Compile.
 
-新旧虚拟 DOM 对比的时候，Diff 算法比较只会在同层级进行, 不会跨层级比较。 所以 Diff 算法是：`深度优先算法`。 时间复杂度:O(n)
+## Talk about the vue diff algorithm
 
-### 具体步骤
+Vue.js uses an efficient diff algorithm to update the `virtual DOM` to improve rendering performance. The core idea of ​​the algorithm is to only update necessary DOM nodes.
 
-- 比较两个虚拟 DOM 树的根节点:
-  - 如果根节点相同，则递归比较其子节点。
-  - 如果根节点不同，则直接替换旧的根节点。
-- 比较两个虚拟 DOM 树的子节点:
-  - 如果子节点的数量相同，则逐个比较每个子节点。
-  - 如果子节点的数量不同，则使用最长公共子序列 (LCS) 算法来找到两个子节点列表中的最大匹配项。
-- 比较两个虚拟 DOM 节点:
-  - 如果节点类型相同，则比较节点的属性。
-  - 如果节点类型不同，则直接替换旧的节点。
-- 更新 DOM 节点:
-  - 如果节点的属性发生变化，则更新 DOM 节点的属性。
-  - 如果节点的文本内容发生变化，则更新 DOM 节点的文本内容。
+When comparing the new and old virtual DOMs, the Diff algorithm will only compare at the same level, not across levels. So the Diff algorithm is: `depth-first algorithm`. Time complexity: O(n)
 
-### 优化
+### Specific steps
 
-Vue diff 算法使用了一些优化技巧来提高性能，例如：
+- Compare the root nodes of the two virtual DOM trees:
+- If the root nodes are the same, recursively compare their child nodes.
+- If the root nodes are different, directly replace the old root node.
+- Compare the child nodes of the two virtual DOM trees:
+- If the number of child nodes is the same, compare each child node one by one.
+- If the number of child nodes is different, the longest common subsequence (LCS) algorithm is used to find the maximum match in the two lists of child nodes.
+- Compare two virtual DOM nodes:
+- If the node types are the same, compare the node attributes.
+- If the node types are different, directly replace the old node.
+- Update DOM nodes:
+- If the node attributes change, update the DOM node attributes.
+- If the text content of the node changes, update the text content of the DOM node.
 
-- 使用 key 来标识节点: 使用 key 可以快速找到两个虚拟 DOM 树中相同的节点，从而减少比较的次数。
-- 使用复用策略: Vue 会尽量复用旧的 DOM 节点，以减少 DOM 操作的次数。
+### Optimization
 
-### 优点
+The Vue diff algorithm uses some optimization techniques to improve performance, such as:
 
-- 是一种高效的 diff 算法，可以有效减少 DOM 操作的次数，从而提高渲染性能。
+- Use key to identify nodes: Using key can quickly find the same nodes in two virtual DOM trees, thereby reducing the number of comparisons.
+- Use reuse strategy: Vue will try to reuse old DOM nodes to reduce the number of DOM operations.
 
-## 谈谈对 vue 生命周期的理解？
+### Advantages
 
-每个 Vue 实例在创建时都会经过一系列的初始化过程，vue 的生命周期钩子，就是说在达到某一阶段或条件时去触发的函数，目的就是为了完成一些动作或者事件。
+- It is an efficient diff algorithm that can effectively reduce the number of DOM operations, thereby improving rendering performance.
 
-`create 阶段`: vue 实例被创建
+## Talk about your understanding of the vue life cycle?
 
-- `beforeCreate`: 创建前，此时 data 和 methods 中的数据都还没有初始化
-- `created`: 创建完毕，data 中有值，未挂载
+Each Vue instance will go through a series of initialization processes when it is created. The vue life cycle hook is a function that is triggered when a certain stage or condition is reached. The purpose is to complete some actions or events.
 
-`mount 阶段`: vue 实例被挂载到真实 DOM 节点
+`create phase`: vue instance is created
 
-- `beforeMount`: 可以发起服务端请求，去数据
-- `mounted`: 此时可以操作 DOM
+- `beforeCreate`: before creation, the data in data and methods are not initialized
 
-`update 阶段`: 当 vue 实例里面的 data 数据变化时，触发组件的重新渲染
+- `created`: creation is complete, data has value, not mounted
 
-- `beforeUpdate`: 更新前
-- `updated`: 更新后
+`mount phase`: vue instance is mounted to the real DOM node
 
-`destroy 阶段`: vue 实例被销毁
+- `beforeMount`: server request can be initiated to get data
 
-- `beforeDestroy`: 实例被销毁前，此时可以手动销毁一些方法
-- `destroyed`: 销毁后
+- `mounted`: DOM can be operated at this time
 
-## 组件生命周期
+`update phase`: when the data in the vue instance changes, the component is re-rendered
 
-### 生命周期（父子组件）
+- `beforeUpdate`: before update
 
-- 父组件 beforeCreate -->
-- 父组件 created -->
-- 父组件 beforeMount -->
-- 子组件 beforeCreate -->
-- 子组件 created -->
-- 子组件 beforeMount -->
-- 子组件 mounted -->
-- 父组件 mounted -->
-- 父组件 beforeUpdate -->
-- 子组件 beforeDestroy -->
-- 子组件 destroyed -->
-- 父组件 updated
+- `updated`: after update
 
-### 加载渲染过程
+`destroy phase`: vue instance is destroyed
 
-- 父 beforeCreate ->
-- 父 created ->
-- 父 beforeMount ->
-- 子 beforeCreate ->
-- 子 created ->
-- 子 beforeMount ->
-- 子 mounted ->
-- 父 mounted
+- `beforeDestroy`: before the instance is destroyed, some methods can be manually destroyed at this time
 
-### 挂载阶段
+- `destroyed`: after destruction
 
-- 父 created ->
-- 子 created ->
-- 子 mounted ->
-- 父 mounted
+## Component life cycle
 
-### 父组件更新阶段
+### Life cycle (parent-child components)
 
-- 父 beforeUpdate ->
-- 父 updated
+- Parent component beforeCreate -->
+- Parent component created -->
+- Parent component beforeMount -->
+- Child component beforeCreate -->
+- Child component created -->
+- Child component beforeMount -->
+- Child component mounted -->
+- Parent component mounted -->
+- Parent component beforeUpdate -->
+- Child component beforeDestroy -->
+- Child component destroyed -->
+- Parent component updated
 
-### 子组件更新阶段
+### Loading and rendering process
 
-- 父 beforeUpdate ->
-- 子 beforeUpdate ->
-- 子 updated ->
-- 父 updated
+- Parent beforeCreate ->
+- Parent created ->
+- Parent beforeMount ->
+- Child beforeCreate ->
+- Child created ->
+- Child beforeMount ->
+- Child mounted ->
+- Parent mounted
 
-### 销毁阶段
+### Mounting phase
 
-- 父 beforeDestroy ->
-- 子 beforeDestroy ->
-- 子 destroyed ->
-- 父 destroyed
+- Parent created ->
+- Child created ->
+- Child mounted ->
+- Parent mounted
 
-## computed 与 watch
+### Parent component update phase
 
-通俗来讲，既能用 computed 实现又可以用 watch 监听来实现的功能，推荐用 computed， 重点在于 computed 的缓存功能 computed 计算属性是用来声明式的描述一个值依赖了其它的值，当所依赖的值或者变量 改变时，计算属性也会跟着改变； watch 监听的是已经在 data 中定义的变量，当该变量变化时，会触发 watch 中的方法。
+- Parent beforeUpdate ->
+- Parent updated
 
-watch 属性监听 是一个对象，键是需要观察的属性，值是对应回调函数，主要用来监听某些特定数据的变化，从而进行某些具体的业务逻辑操作,监听属性的变化，需要在数据变化时执行异步或开销较大的操作时使用。
+### Child component update phase
 
-computed 计算属性 属性的结果会被缓存，当 computed 中的函数所依赖的属性没有发生改变的时候，那么调用当前函数的时候结果会从缓存中读取。除非依赖的响应式属性变化时才会重新计算，主要当做属性来使用 computed 中的函数必须用 return 返回最终的结果 computed 更高效，优先使用。data 不改变，computed 不更新。
+- Parent beforeUpdate ->
+- child beforeUpdate ->
+- child updated ->
+- parent updated
 
-使用场景 computed：`当一个属性受多个属性影响的时候使用`，例：购物车商品结算功能 watch：当一条数据影响多条数据的时候使用，例：搜索数据
+### Destruction phase
 
-## 组件中的 data 为什么是一个函数？
+- parent beforeDestroy ->
+- child beforeDestroy ->
+- child destroyed ->
+- parent destroyed
 
-1. 一个组件被复用多次的话，也就会创建多个实例。本质上，这些实例用的都是同一个构造函数。
-2. 如果 data 是对象的话，对象属于引用类型，会影响到所有的实例。所以为了保证组件不同的实例之间 data 不冲突，data 必须是一个函数。
+## computed and watch
 
-## 为什么 v-for 和 v-if 不建议用在一起
+Generally speaking, for functions that can be implemented by both computed and watch monitoring, computed is recommended, with the focus on computed's caching function. Computed properties are used to declaratively describe that a value depends on other values. When the dependent value or variable changes, the calculated property will also change; watch monitors the variables that have been defined in data. When the variable changes, the method in watch is triggered.
 
-1. 当 v-for 和 v-if 处于同一个节点时，`v-for 的优先级比 v-if 更高，这意味着 v-if 将分别重复运行于每个 v-for 循环中`。如果要遍历的数组很大，而真正要展示的数据很少时，这将造成很大的性能浪费（Vue2.x）
-2. 这种场景建议使用 computed，先对数据进行过滤。
+watch property monitoring is an object. The key is the property to be observed, and the value is the corresponding callback function. It is mainly used to monitor changes in certain specific data, so as to perform certain specific business logic operations. Monitoring property changes is used when asynchronous or high-cost operations need to be performed when data changes.
+
+computed computed property The result of the property will be cached. When the property that the function in computed depends on has not changed, the result will be read from the cache when the current function is called. Unless the dependent responsive property changes, it will be recalculated. It is mainly used as a property. The function in computed must use return to return the final result. computed is more efficient and should be used first. If data does not change, computed will not be updated.
+
+Usage scenario computed: `Use when a property is affected by multiple properties`, for example: shopping cart product settlement function watch: Use when a piece of data affects multiple pieces of data, for example: search data
+
+## Why is data in a component a function?
+
+1. If a component is reused multiple times, multiple instances will be created. Essentially, these instances use the same constructor.
+2. If data is an object, the object is a reference type and will affect all instances. So in order to ensure that data does not conflict between different instances of the component, data must be a function.
+
+## Why v-for and v-if are not recommended to be used together
+
+1. When v-for and v-if are in the same node, v-for has a higher priority than v-if, which means that v-if will be repeated in each v-for loop. If the array to be traversed is large, but the data to be displayed is small, this will cause a great waste of performance (Vue2.x)
+2. In this scenario, it is recommended to use computed to filter the data first.
 
 :::tip
-注意：3.x 版本中 v-if 总是优先于 v-for 生效。由于语法上存在歧义，建议避免在同一元素上同时使用两者。比起在模板层面管理相关逻辑，更好的办法是通过创建计算属性筛选出列表，并以此创建可见元素。
+Note: In version 3.x, v-if always takes precedence over v-for. Due to grammatical ambiguity, it is recommended to avoid using both on the same element at the same time. Compared to managing at the template level
+Related logic, a better way is to filter out the list by creating a calculated property and create a visible element based on it.
 :::
 
-## 项目中 key 的作用
+## The role of key in the project
 
-- key 的作用是为了在 diff 算法执行时更快的找到对应的节点，提高 diff 速度，`更高效的更新虚拟 DOM`;
-  - vue 和 react 都是采用 diff 算法来对比新旧虚拟节点，从而更新节点。
-  - 在 vue 的 diff 函数中，会根据新节点的 key 去对比旧节点数组中的 key，从而找到相应旧节点。
-  - 如果没找到就认为是一个新增节点。
-  - 而如果没有 key，那么就会采用遍历查找的方式去找到对应的旧节点。
-  - 一种一个 map 映射，另一种是遍历查找。相比而言。map 映射的速度更快。
-- 为了在数据变化时强制更新组件，以避免“就地复用”带来的副作用。
-  - 当 Vue.js 用  v-for  更新已渲染过的元素列表时，它默认用“就地复用”策略。
-  - 如果数据项的顺序被改变，Vue 将不会移动 DOM 元素来匹配数据项的顺序，而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。
-  - 重复的 key 会造成渲染错误。
+- The role of key is to find the corresponding node faster when the diff algorithm is executed, improve the diff speed, and `update the virtual DOM more efficiently`;
+- Both vue and react use the diff algorithm to compare the new and old virtual nodes to update the nodes.
+- In the diff function of vue, the key in the old node array is compared according to the key of the new node to find the corresponding old node.
+- If it is not found, it is considered to be a new node.
+- If there is no key, the corresponding old node will be found by traversal search.
+- One is a map mapping, and the other is a traversal search. In comparison. Map mapping is faster.
+- In order to force the component to be updated when the data changes, to avoid the side effects of "in-place reuse".
+- When Vue.js uses v-for to update the list of rendered elements, it uses the "in-place reuse" strategy by default.
+- If the order of the data items is changed, Vue will not move the DOM elements to match the order of the data items, but will simply reuse each element here and ensure that it shows each element rendered at a specific index.
+- Duplicate keys will cause rendering errors.
 
-## 组件通信方式
+## Component communication method
 
-1. props/$emit 父子组件通信
+1. props/$emit parent-child component communication
 
-父 -> 子 props，子 -> 父 $on、$emit 获取父子组件实例 parent、children Ref 获取实例的方式调用组件的属性或者方法 父->子孙 Provide、inject 官方不推荐使用，但是写组件库时很常用
+Parent -> child props, child -> parent $on, $emit Get parent-child component instance parent, children Ref Get instance to call component properties or methods Parent->child Provide, inject Officially not recommended, but very commonly used when writing component libraries
 
-2. $emit/$on 自定义事件 兄弟组件通信
+2. $emit/$on Custom event Brother component communication
 
-`Event Bus` 实现跨组件通信 Vue.prototype.$bus = new Vue() 自定义事件
+`Event Bus` implements cross-component communication Vue.prototype.$bus = new Vue() Custom event
 
-3. vuex 跨级组件通信
+3. vuex cross-level component communication
 
-Vuex、$attrs、$listeners Provide、inject
+Vuex, $attrs, $listeners Provide, inject
 
-## nextTick 的实现
+## Implementation of nextTick
 
-1. nextTick 是 Vue 提供的一个全局 API,是在下次 DOM 更新循环结束之后执行延迟回调，在修改数据之后使用$nextTick，则可以在回调中获取更新后的 DOM；
-2. Vue 在更新 DOM 时是异步执行的。只要侦听到数据变化，Vue 将开启 1 个队列，并缓冲在同一事件循环中发生的所有数据变更。如果同一个 watcher 被多次触发，只会被推入到队列中一次。这种在缓冲时去除重复数据对于避免不必要的计算和 DOM 操作是非常重要的。nextTick 方法会在队列中加入一个回调函数，确保该函数在前面的 dom 操作完成后才调用；
+1. nextTick is a global API provided by Vue. It executes a delayed callback after the next DOM update cycle ends. Use $nextTick after modifying the data to get the updated DOM in the callback;
 
-## nextTick 的实现原理是什么？
+2. Vue executes asynchronously when updating the DOM. As long as data changes are detected, Vue will open a queue and buffer all data changes that occur in the same event loop. If the same watcher is triggered multiple times, it will only be pushed into the queue once. This deduplication of data during buffering is very important for avoiding unnecessary calculations and DOM operations. The nextTick method adds a callback function to the queue to ensure that the function is called after the previous DOM operation is completed;
 
-在下次 DOM 更新循环结束之后执行延迟回调，在修改数据之后立即使用 nextTick 来获取更新后的 DOM。 nextTick 主要使用了宏任务和微任务。 根据执行环境分别尝试采用 Promise、MutationObserver、setImmediate，如果以上都不行则采用 setTimeout 定义了一个异步方法，多次调用 nextTick 会将方法存入队列中，通过这个异步方法清空当前队列。
+## What is the implementation principle of nextTick?
 
-## 使用过插槽么？用的是具名插槽还是匿名插槽或作用域插槽
+After the next DOM update cycle ends, the delayed callback is executed, and nextTick is used immediately after the data is modified to obtain the updated DOM. NextTick mainly uses macrotasks and microtasks. According to the execution environment, try to use Promise, MutationObserver, and setImmediate respectively. If none of the above works, setTimeout is used to define an asynchronous method. Multiple calls to nextTick will store the method in the queue, and the current queue is cleared through this asynchronous method.
 
-vue 中的插槽是一个非常好用的东西 slot 说白了就是一个占位的，在 vue 当中插槽包含三种：一种是`默认插槽（匿名）`，一种是`具名插槽`还有一种就是`作用域插槽`。
+## Have you used slots? Are named slots, anonymous slots or scoped slots used?
 
-匿名插槽就是没有名字的只要默认的都填到这里具名插槽指的是具有名字的。
+The slot in Vue is a very useful thing. To put it simply, slots are placeholders. There are three types of slots in Vue: one is the `default slot (anonymous)`, one is the `named slot` and the other is the `scoped slot`.
 
-## keep-alive 的实现
+Anonymous slots are those without names. As long as the default ones are filled in here, the named slots are those with names.
 
-作用：实现组件缓存，保持这些组件的状态，以避免反复渲染导致的性能问题。需要缓存组件 频繁切换，不需要重复渲染。
+## Implementation of keep-alive
 
-场景：tabs 标签页 后台导航，vue 性能优化。
+Function: Implement component caching and maintain the status of these components to avoid performance problems caused by repeated rendering. Components need to be cached and switched frequently, and no repeated rendering is required.
 
-原理：Vue.js 内部将 DOM 节点抽象成了一个个的 VNode 节点，keep-alive 组件的缓存也是基于 VNode 节点的而不是直接存储 DOM 结构。它将满足条件（pruneCache 与 pruneCache）的组件在 cache 对象中缓存起来，在需要重新渲染的时候再将 vnode 节点从 cache 对象中取出并渲染。
+Scenarios: tabs, background navigation, Vue performance optimization.
+
+Principle: Vue.js abstracts DOM nodes into VNode nodes, and the cache of keep-alive components is also based on VNode nodes instead of directly storing DOM structures. It caches the components that meet the conditions (pruneCache and pruneCache) in the cache object, and takes the vnode node from the cache object and renders it when it needs to be re-rendered.
 
 ## mixin
 
-mixin 项目变得复杂的时候，多个组件间有重复的逻辑就会用到 mixin。多个组件有相同的逻辑，抽离出来。mixin 并不是完美的解决方案，会有一些问题。
+When the mixin project becomes complex, mixins will be used when there is repeated logic between multiple components. Multiple components have the same logic, which is extracted. Mixin is not a perfect solution and there will be some problems.
 
-vue3 提出的 Composition API 旨在解决这些问题【追求完美是要消耗一定的成本的，如开发成本】
+The Composition API proposed by vue3 aims to solve these problems [the pursuit of perfection consumes a certain cost, such as development cost]
 
-场景：PC 端新闻列表和详情页一样的右侧栏目，可以使用 mixin 进行混合。
+Scenario: The right column of the news list and the details page on the PC side can be mixed using mixin.
 
-劣势:
+Disadvantages:
 
-1. 变量来源不明确，不利于阅读。
-2. 多 mixin 可能会造成命名冲突 3.mixin 和组件可能出现多对多的关系，使得项目复杂度变高。
+1. The source of the variable is unclear, which is not conducive to reading.
 
-## Vuex 的理解及使用场景
+2. Multiple mixins may cause naming conflicts 3. Mixins and components may have many-to-many relationships, making the project more complex.
 
-Vuex 是一个专为 Vue 应用程序开发的状态管理模式。每一个 Vuex 应用的核心就是 store（仓库）。
+## Understanding and usage scenarios of Vuex
 
-1. Vuex 的状态存储是响应式的；当 Vue 组件从 store 中读取状态的时候，若 store 中的状态发生变化，那么相应的组件也会相应地得到高效更新。
-2. 改变 store 中的状态的唯一途径就是显式地提交 (commit) mutation， 这样使得我们可以方便地跟踪每一个状态的变化 Vuex 主要包括以下几个核心模块：
-   1. State：定义了应用的状态数。
-   2. Getter：在 store 中定义“getter”（可以认为是 store 的计算属性），就像计算属性一样，getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。
-   3. Mutation：是唯一更改 store 中状态的方法，且必须是同步函数。
-   4. Action：用于提交 mutation，而不是直接变更状态，可以包含任意异步操作。
-   5. Module：允许将单一的 Store 拆分为多个 store 且同时保存在单一的状态树中。
+Vuex is a state management mode developed specifically for Vue applications. The core of every Vuex application is the store.
+
+1. Vuex's state storage is responsive; when a Vue component reads the state from the store, if the state in the store changes, the corresponding component will also be efficiently updated accordingly.
+2. The only way to change the state in the store is to explicitly commit mutations, which allows us to easily track the changes of each state. Vuex mainly includes the following core modules:
+1. State: defines the number of states of the application.
+2. Getter: Define "getter" in the store (which can be considered as the calculated property of the store). Just like the calculated property, the return value of the getter will be cached according to its dependencies and will only be recalculated when its dependent values ​​change.
+3. Mutation: It is the only way to change the state in the store and must be a synchronous function.
+4. Action: It is used to submit mutations instead of directly changing the state. It can contain any asynchronous operations.
+5. Module: allows a single Store to be split into multiple stores and saved in a single state tree at the same time.
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a7249773a1634f779c48f3f0ffabf968~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
