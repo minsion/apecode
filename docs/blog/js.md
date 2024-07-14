@@ -3003,10 +3003,6 @@ console.log(child.hasOwnProperty('sayName'))//false
 
 ### 111. 给定两个数组，求交集
 
-> 参考答案：
->
-> 示例代码如下：
-
 ```js
 const set_intersection = (set1, set2) => {
   if (set1.size > set2.size) {
