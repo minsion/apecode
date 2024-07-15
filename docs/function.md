@@ -87,199 +87,6 @@ export const throttle = (fn, delay = 200) => {
 
 :::
 
-## {{ getNumEmoji() }} 项目开发
-
-### 浅拷贝
-
-:::tip ShallowClone
-
-`浅拷贝`
-
-```javascript
-/**
- * 浅拷贝对象或数组
- * @param {any} value - 需要浅拷贝的值
- * @returns {any} - 浅拷贝后的值
- */
-function shallowClone(value) {
-  if (value === null || typeof value !== "object") {
-    return value;
-  }
-
-  const type = Object.prototype.toString.call(value);
-
-  if (type === "[object Array]") {
-    return [...value];
-  } else if (type === "[object Object]") {
-    return { ...value };
-  } else {
-    return value; // 对于 Date, RegExp, Map, Set 等非普通对象类型，直接返回原值
-  }
-}
-```
-
-:::
-
-### 深拷贝
-
-:::tip DeepClone
-
-`深拷贝`
-
-```javascript
-/**
- * 深拷贝对象或数组
- * @param {any} value - 需要深拷贝的值
- * @param {WeakMap} [hash=new WeakMap()] - 用于处理循环引用的WeakMap
- * @returns {any} - 深拷贝后的值
- */
-function deepClone(value, hash = new WeakMap()) {
-  if (value === null || typeof value !== "object") {
-    return value;
-  }
-
-  if (hash.has(value)) {
-    return hash.get(value);
-  }
-
-  let result;
-  const type = Object.prototype.toString.call(value);
-
-  if (type === "[object Array]") {
-    result = [];
-    hash.set(value, result);
-    value.forEach((item, index) => {
-      result[index] = deepClone(item, hash);
-    });
-  } else if (type === "[object Date]") {
-    result = new Date(value);
-  } else if (type === "[object RegExp]") {
-    result = new RegExp(value);
-  } else if (type === "[object Map]") {
-    result = new Map();
-    hash.set(value, result);
-    value.forEach((val, key) => {
-      result.set(key, deepClone(val, hash));
-    });
-  } else if (type === "[object Set]") {
-    result = new Set();
-    hash.set(value, result);
-    value.forEach((val) => {
-      result.add(deepClone(val, hash));
-    });
-  } else {
-    result = Object.create(Object.getPrototypeOf(value));
-    hash.set(value, result);
-    for (const key in value) {
-      if (value.hasOwnProperty(key)) {
-        result[key] = deepClone(value[key], hash);
-      }
-    }
-  }
-
-  return result;
-}
-```
-
-:::
-
-### GUID
-
-:::tip GetGuid
-
-`全局唯一标识符`
-
-```javascript
-/**
- * 全局唯一标识符 GUID
- * @returns {String} xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx
- */
-export const getGuid = () => {
-  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
-    const r = (Math.random() * 16) | 0;
-    const v = c === "x" ? r : (r & 0x3) | 0x8;
-    return v.toString(16);
-  });
-};
-```
-
-:::
-
-### 浏览器环境
-
-:::tip GetBrowserEnvironment
-
-`获取浏览器环境`
-
-```javascript
-/**
- * 获取浏览器环境
- * @returns {Object} 浏览器环境对象 {isMobile: boolean, isPc: boolean, isWeixin: boolean}
- */
-export const getBrowserEnvironment = () => {
-  const { userAgent } = navigator;
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator);
-  const isPc = !isMobile;
-  const isWeixin = /MicroMessenger/i.test(navigator);
-
-  return { isMobile, isPc, isWeixin };
-};
-```
-
-:::
-
-### 地址栏参数
-
-:::tip GetParams
-
-`根据传入的网址，自动解析提取所有参数，并返回`
-
-```javascript
-/**
- * 提取地址栏中所有参数
- * @param {String} url 网址
- * @returns {Object} 解析后的参数对象
- */
-export const getParams = (url = "") => {
-  // str为？之后的参数部分字符串
-  const str = url.substr(url.indexOf("?") + 1);
-  // arr每个元素都是完整的参数键值
-  const arr = str.split("&");
-  // result为存储参数键值的集合
-  const result = {};
-  for (let i = 0; i < arr.length; i++) {
-    // item的两个元素分别为参数名和参数值
-    const item = arr[i].split("=");
-    result[item[0]] = item[1];
-  }
-  return result;
-};
-```
-
-:::
-
-### 地址栏参数(指定)
-
-:::tip GetUrlParam
-
-`自动获取当前页面地址，根据指定参数名进行查找，返回查找到的参数值，如果没有返沪 null`
-
-```javascript
-/**
- * 自动获取当前页面地址，根据指定参数名进行查找，返回查找到的参数值，如果没有返沪 null
- * @param {String} name 需要查找的参数名
- * @returns {String||Null} 查找值结果
- */
-export const getUrlParam = (name) => {
-  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); // 构造一个含有目标参数的正则表达式对象
-  var r = window.location.search.substr(1).match(reg); // 匹配目标参数
-  if (r != null) return unescape(r[2]);
-  return null; // 返回参数值
-};
-```
-
-:::
-
 ## {{ getNumEmoji() }} 时间处理
 
 ### 时间戳
@@ -503,7 +310,7 @@ export const getRandomIntWithExclusion = (min, max, excludeValue) => {
 
 :::
 
-## {{ getNumEmoji() }} 字符串处理
+## {{ getNumEmoji() }} 面试手撕函数
 
 ### 替换字符串
 
@@ -526,11 +333,10 @@ function replaceString(sourceStr, checkStr, replaceStr = "") {
   return sourceStr.replace(reg, replaceStr);
 },
 ```
-
 :::
 
-## {{ getNumEmoji() }} 千分位分隔符
 
+### 千分位分隔符
 :::tip 千分位分隔符
 
 ```javascript
@@ -548,8 +354,7 @@ console.log('thousandSeparator：', thousandSeparator(12378900)) // 12,378,900
 ```
 :::
 
-## {{ getNumEmoji() }} 检查是否是类的对象实例
-
+### 检查是否是类的对象实例
 :::tip 检查是否是类的对象实例
 
 ```javascript
@@ -571,5 +376,69 @@ console.log('checkIfInstanceOf', checkIfInstanceOf(new Dog(), Animal)) // true
 console.log('checkIfInstanceOf', checkIfInstanceOf(Date, Date)) // false
 console.log('checkIfInstanceOf', checkIfInstanceOf(5, Number)) // true
 console.log('checkIfInstanceOf', checkIfInstanceOf([], Array)) // true
+```
+:::
+
+
+### 浅拷贝
+
+:::tip ShallowClone
+
+`浅拷贝`
+
+```javascript
+/**
+ * 浅拷贝对象或数组
+ * @param {any} value - 需要浅拷贝的值
+ * @returns {any} - 浅拷贝后的值
+ */
+function shallowClone(value) {
+  if (value === null || typeof value !== "object") {
+    return value;
+  }
+
+  const type = Object.prototype.toString.call(value);
+
+  if (type === "[object Array]") {
+    return [...value];
+  } else if (type === "[object Object]") {
+    return { ...value };
+  } else {
+    return value; // 对于 Date, RegExp, Map, Set 等非普通对象类型，直接返回原值
+  }
+}
+```
+
+:::
+
+### 深拷贝
+
+:::tip DeepClone
+
+`深拷贝`
+
+```javascript
+/**
+ * 深拷贝对象或数组
+ * @param {any} value - 需要深拷贝的值
+ * @returns {any} - 深拷贝后的值
+ */
+fconst deepClone = obj => {
+  if (obj === null) return null;
+  let clone = Object.assign({}, obj);
+  Object.keys(clone).forEach(
+    key =>
+      (clone[key] =
+        typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key])
+  );
+  if (Array.isArray(obj)) {
+    clone.length = obj.length;
+    return Array.from(clone);
+  }
+  return clone;
+};
+
+const a = { foo: 'bar', obj: { a: 1, b: 2 } };
+const b = deepClone(a); // a !== b, a.obj !== b.obj
 ```
 :::

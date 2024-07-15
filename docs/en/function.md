@@ -87,167 +87,6 @@ export const throttle = (fn, delay = 200) => {
 ```
 
 :::
-## {{ getNumEmoji() }} Project Development
-
-### Shallow Clone
-
-:::tip ShallowClone
-
-`Shallow Clone`
-
-```javascript
-/**
-* Shallowly copy an object or array
-* @param {any} value - the value to be shallowly copied
-* @returns {any} - the value after shallow copy
-*/
-function shallowClone(value) {
-  if (value === null || typeof value !== "object") {
-    return value;
-  }
-
-  const type = Object.prototype.toString.call(value);
-
-  if (type === "[object Array]") {
-    return [...value];
-  } else if (type === "[object Object]") {
-    return { ...value };
-  } else {
-    return value; // For non-ordinary object types such as Date, RegExp, Map, Set, etc., the original value is returned directly
-  }
-}
-```
-
-:::
-
-### Deep copy
-
-:::tip DeepClone
-
-`Deep copy`
-
-```javascript
-/**
-* Deep copy object or array
-* @param {any} obj - value to be deep copied
-*/
-const deepClone = obj => {
-  if (obj === null) return null;
-  let clone = Object.assign({}, obj);
-  Object.keys(clone).forEach(
-    key =>
-      (clone[key] =
-        typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key])
-  );
-  if (Array.isArray(obj)) {
-    clone.length = obj.length;
-    return Array.from(clone);
-  }
-  return clone;
-};
-
-const a = { foo: 'bar', obj: { a: 1, b: 2 } };
-const b = deepClone(a); // a !== b, a.obj !== b.obj
-```
-
-:::
-
-### GUID
-
-:::tip GetGuid
-
-`Globally unique identifier`
-
-```javascript
-/**
-* Globally unique identifier GUID
-* @returns {String} xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx
-*/
-export const getGuid = () => {
-  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
-    const r = (Math.random() * 16) | 0;
-    const v = c === "x" ? r : (r & 0x3) | 0x8;
-    return v.toString(16);
-  });
-};
-```
-
-:::
-
-### Browser environment
-
-:::tip GetBrowserEnvironment
-
-`Get browser environment`
-
-```javascript
-/**
-* Get browser environment
-* @returns {Object} Browser environment object {isMobile: boolean, isPc: boolean, isWeixin: boolean}
-*/
-export const getBrowserEnvironment = () => {
-  const { userAgent } = navigator;
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator);
-  const isPc = !isMobile;
-  const isWeixin = /MicroMessenger/i.test(navigator);
-
-  return { isMobile, isPc, isWeixin };
-};
-```
-
-:::
-
-### Address bar parameters
-
-:::tip GetParams
-
-`According to the incoming URL, automatically parse and extract all parameters, and return`
-
-```javascript
-/**
-* Extract all parameters in the address bar
-* @param {String} url URL
-* @returns {Object} Parsed parameter object
-*/
-export const getParams = (url = "") => {
-  // str is? The following parameter part string
-  const str = url.substr(url.indexOf("?") + 1);
-  // Each element of arr is a complete parameter key value
-  const arr = str.split("&");
-  // result is a collection of parameter key values
-  const result = {};
-  for (let i = 0; i < arr.length; i++) {
-    // The two elements of item are parameter name and parameter value respectively
-    const item = arr[i].split("=");
-    result[item[0]] = item[1];
-  }
-  return result;
-};
-```
-
-:::
-
-### Address bar parameters (specified)
-
-:::tip GetUrlParam
-
-`Automatically obtain the current page address, search according to the specified parameter name, return the found parameter value, if not return null`
-
-```javascript
-/**
-* Automatically obtain the current page address, search according to the specified parameter name, return the found parameter value, if not return null
-* @param {String} name Parameter name to be searched
-* @returns {String||Null} Search value result
-*/
-export const getUrlParam = (name) => {
-  let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); // Construct a regular expression object containing the target parameter
-  let r = window.location.search.substr(1).match(reg); // Match target parameter
-  if (r != null) return unescape(r[2]);
-  return null; // Return parameter value
-};
-```
-
-:::
 
 ## {{ getNumEmoji() }} Time processing
 
@@ -471,7 +310,7 @@ do {
 
 :::
 
-## {{ getNumEmoji() }} string processing
+## {{ getNumEmoji() }} Interview hand tearing function
 
 ### replace string
 
@@ -494,10 +333,9 @@ function replaceString(sourceStr, checkStr, replaceStr = "") {
   return sourceStr.replace(reg, replaceStr);
 },
 ```
-
 :::
-## {{ getNumEmoji() }} Thousands separator
 
+### Thousands separator
 :::tip Thousands separator
 
 ```javascript
@@ -515,8 +353,7 @@ console.log('thousandSeparator：', thousandSeparator(12378900)) // 12,378,900
 ```
 :::
 
-## {{ getNumEmoji() }} Check if it is an object instance of a class
-
+### checkIfInstanceOf
 :::tip Check if it is an object instance of a class
 
 ```javascript
@@ -540,3 +377,68 @@ console.log('checkIfInstanceOf', checkIfInstanceOf(5, Number)) // true
 console.log('checkIfInstanceOf', checkIfInstanceOf([], Array)) // true
 ```
 :::
+
+
+### Shallow Clone
+
+:::tip ShallowClone
+
+`Shallow Clone`
+
+```javascript
+/**
+* Shallowly copy an object or array
+* @param {any} value - the value to be shallowly copied
+* @returns {any} - the value after shallow copy
+*/
+function shallowClone(value) {
+  if (value === null || typeof value !== "object") {
+    return value;
+  }
+
+  const type = Object.prototype.toString.call(value);
+
+  if (type === "[object Array]") {
+    return [...value];
+  } else if (type === "[object Object]") {
+    return { ...value };
+  } else {
+    return value; // For non-ordinary object types such as Date, RegExp, Map, Set, etc., the original value is returned directly
+  }
+}
+```
+
+:::
+
+### Deep copy
+
+:::tip DeepClone
+
+`Deep copy`
+
+```javascript
+/**
+* Deep copy object or array
+* @param {any} obj - value to be deep copied
+*/
+const deepClone = obj => {
+  if (obj === null) return null;
+  let clone = Object.assign({}, obj);
+  Object.keys(clone).forEach(
+    key =>
+      (clone[key] =
+        typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key])
+  );
+  if (Array.isArray(obj)) {
+    clone.length = obj.length;
+    return Array.from(clone);
+  }
+  return clone;
+};
+
+const a = { foo: 'bar', obj: { a: 1, b: 2 } };
+const b = deepClone(a); // a !== b, a.obj !== b.obj
+```
+:::
+
+

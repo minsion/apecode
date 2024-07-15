@@ -6,8 +6,6 @@ layout: doc
   import { ref, onMounted, computed } from "vue";
   import { base } from '../../.vitepress/config/meta.mts'
   import { BlogData } from "../../.vitepress/config/navSidebarBlog.mts";
-  import DocsBlogCharts from "../../.vitepress/components/DocsBlogCharts.vue";
-
   const renderDate = ref([]);
 
   onMounted(() => {
