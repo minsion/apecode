@@ -1,0 +1,1 @@
+const n=[{text:"JavaScript",link:"/blog/js.md",items:[]}];(()=>{const a=JSON.parse(JSON.stringify(n)),t=[];return a.forEach(s=>{let e=s.items;t.push({text:s.text,link:s.link||e[e.length-1].link})}),t})();(()=>{const a=JSON.parse(JSON.stringify(n)),t=[];return a.forEach(s=>{t.push({...s,collapsed:!0})}),t})();export{n as B};
