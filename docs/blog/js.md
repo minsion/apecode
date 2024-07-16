@@ -515,61 +515,96 @@ zhangsan.testStuFunc(); // this is a testStuFunc
 
 > 参考答案：
 >
-> 柯里化（*currying*）又称部分求值。一个柯里化的函数首先会接受一些参数，接受了这些参数之后，该函数并不会立即求值，而是继续返回另外一个函数，刚才传入的参数在函数形成的闭包中被保存起来。待到函数被真正需要求值的时候，之前传入的所有参数都会被一次性用于求值。
+> 柯里化（currying）又称部分求值。一个柯里化的函数首先会接受一些参数，接受了这些参数之后，该函数并不会立即求值，而是继续返回另外一个函数，刚才传入的参数在函数形成的闭包中被保存起来。待到函数被真正需要求值的时候，之前传入的所有参数都会被一次性用于求值。
 >
 > 举个例子，就是把原本：
 >
-> *function(arg1,arg2)* 变成 *function(arg1)(arg2)*
-> *function(arg1,arg2,arg3)* 变成 *function(arg1)(arg2)(arg3)*
-> *function(arg1,arg2,arg3,arg4)* 变成 *function(arg1)(arg2)(arg3)(arg4)*
+> function(arg1,arg2) 变成 function(arg1)(arg2)
+> function(arg1,arg2,arg3) 变成 function(arg1)(arg2)(arg3)
+> function(arg1,arg2,arg3,arg4) 变成 function(arg1)(arg2)(arg3)(arg4)
 >
 > 总而言之，就是将：
 >
-> *function(arg1,arg2,…,argn)* 变成 *function(arg1)(arg2)…(argn)*
+> function(arg1,arg2,…,argn) 变成 function(arg1)(arg2)…(argn)*
 
+:::tip 柯里化
+```js
+/* 
+在案例中，curry函数接受一个函数fn作为参数，返回一个新的函数curried。
+curried函数在调用时会检查传入的参数数量是否大于或等于原始函数fn的参数数量（arity），
+如果是，则直接调用原始函数；否则，返回一个新的函数，该函数接受剩余的参数（rest），
+并将之前传入的参数（args）与剩余参数合并后调用curried函数。通过这种方式，实现函数柯里化。
+*/
 
+const curry = (fn) => {
+  const arity = fn.length;
+  return function curried(...args) {
+    if (args.length >= arity) {
+      return fn.apply(this, args);
+    } else {
+      return function (...rest) {
+        return curried.apply(this, args.concat(rest));
+      };
+    }
+  };
+}
+const getURL = (protocol, domain, path) => {
+  return protocol + "://" + domain + "/" + path;
+}
+const myurl = getURL('http', 'mysite', 'home.html');
+const myurl2 = getURL('http', 'mysite', 'about.html');
+console.log('myurl', myurl);
+console.log('myurl2', myurl2);
 
-### 15. *promise.all* 方法的使用场景？数组中必须每一项都是 *promise* 对象吗？不是 *promise* 对象会如何处理 ？
+// 减少重复传递不变的部分参数
+const superGetURL = curry(getURL)('https', 'mysite');
+const myurl3 = superGetURL('detail.html')
+
+console.log('myurl3', myurl3);
+```
+:::
+
+### 15. promise.all 方法的使用场景？数组中必须每一项都是 promise 对象吗？不是 promise 对象会如何处理 ？
 
 > 参考答案：
 >
-> ***promise.all(promiseArray)*** 方法是 *promise* 对象上的静态方法，该方法的作用是将多个 *promise* 对象实例包装，生成并返回一个新的 *promise* 实例。
+> promise.all(promiseArray) 方法是 promise 对象上的静态方法，该方法的作用是将多个 promise 对象实例包装，生成并返回一个新的 promise 实例。
 >
-> 此方法在集合多个 *promise* 的返回结果时很有用。
+> 此方法在集合多个 promise 的返回结果时很有用。
 >
-> 返回值将会按照参数内的 *promise* 顺序排列，而不是由调用 *promise* 的完成顺序决定。
+> 返回值将会按照参数内的 promise 顺序排列，而不是由调用 promise 的完成顺序决定。
 >
-> ***promise.all* 的特点**
+> promise.all 的特点
 >
-> 接收一个*Promise*实例的数组或具有*Iterator*接口的对象
+> 接收一个Promise实例的数组或具有Iterator接口的对象
 >
-> 如果元素不是*Promise*对象，则使用*Promise.resolve*转成*Promise*对象
+> 如果元素不是Promise对象，则使用Promise.resolve转成Promise对象
 >
-> 如果全部成功，状态变为*resolved*，返回值将组成一个数组传给回调
+> 如果全部成功，状态变为resolved，返回值将组成一个数组传给回调
 >
-> 只有有一个失败，状态就变为 *rejected*，返回值将直接传递给回调  *all( )*的返回值，也是新的 *promise* 对象
+> 只有有一个失败，状态就变为 rejected，返回值将直接传递给回调  all( )的返回值，也是新的 promise 对象
 
 
 
-### 16. *this* 的指向哪几种 ？
-
-> 参考答案：
->
-> 总结起来，*this* 的指向规律有如下几条：
->
-> - 在函数体中，非显式或隐式地简单调用函数时，在严格模式下，函数内的 *this* 会被绑定到 *undefined* 上，在非严格模式下则会被绑定到全局对象 *window/global* 上。
-> - 一般使用 *new* 方法调用构造函数时，构造函数内的 *this* 会被绑定到新创建的对象上。
-> - 一般通过 *call/apply/bind* 方法显式调用函数时，函数体内的 *this* 会被绑定到指定参数的对象上。
-> - 一般通过上下文对象调用函数时，函数体内的 *this* 会被绑定到该对象上。
-> - 在箭头函数中，*this* 的指向是由外层（函数或全局）作用域来决定的。
-
-
-
-### 17. *JS* 中继承实现的几种方式
+### 16. this 的指向哪几种 ？
 
 > 参考答案：
 >
-> *JS* 的继承随着语言的发展，从最早的对象冒充到现在的圣杯模式，涌现出了很多不同的继承方式。每一种新的继承方式都是对前一种继承方式不足的一种补充。
+> 总结起来，this 的指向规律有如下几条：
+>
+> - 在函数体中，非显式或隐式地简单调用函数时，在严格模式下，函数内的 this 会被绑定到 undefined 上，在非严格模式下则会被绑定到全局对象 window/global 上。
+> - 一般使用 new 方法调用构造函数时，构造函数内的 this 会被绑定到新创建的对象上。
+> - 一般通过 call/apply/bind 方法显式调用函数时，函数体内的 this 会被绑定到指定参数的对象上。
+> - 一般通过上下文对象调用函数时，函数体内的 this 会被绑定到该对象上。
+> - 在箭头函数中，this 的指向是由外层（函数或全局）作用域来决定的。
+
+
+
+### 17. JS 中继承实现的几种方式
+
+> 参考答案：
+>
+> JS 的继承随着语言的发展，从最早的对象冒充到现在的圣杯模式，涌现出了很多不同的继承方式。每一种新的继承方式都是对前一种继承方式不足的一种补充。
 >
 > 1. 原型链继承
 >
@@ -582,7 +617,7 @@ zhangsan.testStuFunc(); // this is a testStuFunc
 >
 > 2. 借用构造函数继承
 >
-> - 重点：用 *call( )* 和 *apply( )* 将父类构造函数引入子类函数（在子类函数中做了父类函数的自执行（复制））
+> - 重点：用 call( ) 和 apply( ) 将父类构造函数引入子类函数（在子类函数中做了父类函数的自执行（复制））
 > - 特点：
 >   　　　- 1、只继承了父类构造函数的属性，没有继承父类原型的属性。
 >      - 2、解决了原型链继承缺点1、2、3。
@@ -597,15 +632,53 @@ zhangsan.testStuFunc(); // this is a testStuFunc
 >
 > - 重点：结合了两种模式的优点，传参和复用
 > - 特点：
->   　　　- 1、可以继承父类原型上的属性，可以传参，可复用。
->         　　　- 2、每个新实例引入的构造函数属性是私有的。
+>  	- 1、可以继承父类原型上的属性，可以传参，可复用。
+> 	- 2、每个新实例引入的构造函数属性是私有的。
 > - 缺点：调用了两次父类构造函数（耗内存），子类的构造函数会代替原型上的那个父类构造函数。
 >
 > 4. 寄生组合式继承（圣杯模式）
 >
 > - 重点：修复了组合继承的问题
 
+:::tip 寄生组合式继承
+```js
+var Person = function (name, age) {
+  this.name = name;
+  this.age = age;
+}
+Person.prototype.test = "this is a test";
+Person.prototype.testFunc = function () {
+  console.log('this is a testFunc');
+}
 
+// 子类
+var Student = function (name, age, gender, score) {
+  Person.apply(this, [name, age]); // 盗用构造函数
+  this.gender = gender;
+  this.score = score;
+}
+// 1. 组合继承
+// Student.prototype = new Person(); 
+// 2.圣杯模式
+Student.prototype = Object.create(Person.prototype);
+Student.prototype.constructor = Student;
+
+Student.prototype.testStuFunc = function () {
+  console.log('this is a testStuFunc');
+}
+
+// 测试
+var zhangsan = new Student("张三", 18, "男", 100);
+console.log(zhangsan.name); // 张三
+console.log(zhangsan.age); // 18
+console.log(zhangsan.gender); // 男
+console.log(zhangsan.score); // 100
+console.log(zhangsan.test); // this is a test
+zhangsan.testFunc(); // this is a testFunc
+zhangsan.testStuFunc(); // this is a testStuFunc
+console.log(Student.prototype)
+```
+:::
 
 ### 18. 什么是事件监听
 
@@ -619,12 +692,12 @@ zhangsan.testStuFunc(); // this is a testStuFunc
 >
 > 当事件绑定好后，程序就会对事件进行监听，当用户触发事件时，就会执行对应的事件处理程序。
 >
-> 关于事件监听，*W3C* 规范中定义了 *3* 个事件阶段，依次是捕获阶段、目标阶段、冒泡阶段。
+> 关于事件监听，W3C 规范中定义了 3 个事件阶段，依次是捕获阶段、目标阶段、冒泡阶段。
 >
-> - **捕获**阶段：在事件对象到达事件目标之前，事件对象必须从 *window* 经过目标的祖先节点传播到事件目标。 这个阶段被我们称之为捕获阶段。在这个阶段注册的事件监听器在事件到达其目标前必须先处理事件。
+> - 捕获阶段：在事件对象到达事件目标之前，事件对象必须从 window 经过目标的祖先节点传播到事件目标。 这个阶段被我们称之为捕获阶段。在这个阶段注册的事件监听器在事件到达其目标前必须先处理事件。
 >
-> - **目标** 阶段：事件对象到达其事件目标。 这个阶段被我们称为目标阶段。一旦事件对象到达事件目标，该阶段的事件监听器就要对它进行处理。如果一个事件对象类型被标志为不能冒泡。那么对应的事件对象在到达此阶段时就会终止传播。
-> - **冒泡** 阶段：事件对象以一个与捕获阶段相反的方向从事件目标传播经过其祖先节点传播到 *window*。这个阶段被称之为冒泡阶段。在此阶段注册的事件监听器会对相应的冒泡事件进行处理。
+> - 目标 阶段：事件对象到达其事件目标。 这个阶段被我们称为目标阶段。一旦事件对象到达事件目标，该阶段的事件监听器就要对它进行处理。如果一个事件对象类型被标志为不能冒泡。那么对应的事件对象在到达此阶段时就会终止传播。
+> - 冒泡 阶段：事件对象以一个与捕获阶段相反的方向从事件目标传播经过其祖先节点传播到 window。这个阶段被称之为冒泡阶段。在此阶段注册的事件监听器会对相应的冒泡事件进行处理。
 
 
 

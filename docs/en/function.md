@@ -487,3 +487,62 @@ const sortArray = function (nums) {
 sortArray([1, 3, 9, 5, 2, 4, 6])
 ```
 :::
+
+### curry
+:::tip curry
+
+```js
+/* 
+In this case, the curry function accepts a function fn as a parameter and returns a new function curried.
+When the curried function is called, it checks whether the number of parameters passed in is greater than or equal to the number of parameters (arity) of the original function fn.
+If so, it calls the original function directly; otherwise, it returns a new function that accepts the remaining parameters (rest) and merges the previously passed parameters (args) with the remaining parameters before calling the curried function. In this way, function currying is achieved.
+*/
+
+const curry = (fn) => {
+  const arity = fn.length;
+  return function curried(...args) {
+    if (args.length >= arity) {
+      return fn.apply(this, args);
+    } else {
+      return function (...rest) {
+        return curried.apply(this, args.concat(rest));
+      };
+    }
+  };
+}
+const getURL = (protocol, domain, path) => {
+  return protocol + "://" + domain + "/" + path;
+}
+const myurl = getURL('http', 'mysite', 'home.html');
+const myurl2 = getURL('http', 'mysite', 'about.html');
+console.log('myurl', myurl);
+console.log('myurl2', myurl2);
+
+const curry = (fn) => {
+  const arity = fn.length;
+  return function curried(...args) {
+    if (args.length >= arity) {
+      return fn.apply(this, args);
+    } else {
+      return function (...rest) {
+        return curried.apply(this, args.concat(rest));
+      };
+    }
+  };
+}
+const getURL = (protocol, domain, path) => {
+  return protocol + "://" + domain + "/" + path;
+}
+const myurl = getURL('http', 'mysite', 'home.html');
+const myurl2 = getURL('http', 'mysite', 'about.html');
+console.log('myurl', myurl);
+console.log('myurl2', myurl2);
+
+// Reduce repeated passing of unchanged parameters
+const superGetURL = curry(getURL)('https', 'mysite');
+const myurl3 = superGetURL('detail.html')
+
+console.log('myurl3', myurl3);
+
+```
+:::
