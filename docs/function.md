@@ -467,3 +467,25 @@ intersect([4,9,5], [9,4,9,8,4]) // [4, 9]
 intersect([3,1,2], [2,2]) // [2]
 ```
 :::
+
+### 数组排序
+:::tip sortArray
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+const sortArray = function (nums) {
+  const { length } = nums;
+  for (let i = 0; i < length; i++) {
+    for (let j = 0; j < length - 1 - i; j++) {
+      if (nums[j] > nums[j + 1]) {
+        [nums[j], nums[j + 1]] = [nums[j + 1], nums[j]];
+      }
+    }
+  }
+  return nums;
+};
+sortArray([1, 3, 9, 5, 2, 4, 6])
+```
+:::
