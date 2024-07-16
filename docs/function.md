@@ -442,3 +442,28 @@ const a = { foo: 'bar', obj: { a: 1, b: 2 } };
 const b = deepClone(a); // a !== b, a.obj !== b.obj
 ```
 :::
+
+### 数组的交集
+
+:::tip intersect
+```js
+// 在西雅图的公司远程工作，因为月中算法考核，半月的绩效奖金没了。。。
+const intersect = function (nums1, nums2) {
+  let result = []
+  let longArr = nums1.length > nums2.length ? nums1 : nums2;
+  let shortArr = nums1.length > nums2.length ? nums2 : nums1;
+
+  for (let i = 0; i < shortArr.length; i++) {
+    let longIndex = longArr.indexOf(shortArr[i])
+    if (longIndex != -1) {
+      result.push(longArr.splice(longIndex, 1)[0])
+    }
+  }
+  return result
+};
+
+intersect([1,2,1,2], [2,2,2]) // [2, 2, 2]
+intersect([4,9,5], [9,4,9,8,4]) // [4, 9]
+intersect([3,1,2], [2,2]) // [2]
+```
+:::
