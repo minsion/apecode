@@ -441,4 +441,27 @@ const b = deepClone(a); // a !== b, a.obj !== b.obj
 ```
 :::
 
+### array intersect
 
+:::tip intersect
+```js
+// I work remotely in a company in Seattle. Because of the mid-month algorithm assessment, half of my month’s performance bonus was lost. . .
+const intersect = function (nums1, nums2) {
+  let result = []
+  let longArr = nums1.length > nums2.length ? nums1 : nums2;
+  let shortArr = nums1.length > nums2.length ? nums2 : nums1;
+
+  for (let i = 0; i < shortArr.length; i++) {
+    let longIndex = longArr.indexOf(shortArr[i])
+    if (longIndex != -1) {
+      result.push(longArr.splice(longIndex, 1)[0])
+    }
+  }
+  return result
+};
+
+intersect([1,2,1,2], [2,2,2]) // [2, 2, 2]
+intersect([4,9,5], [9,4,9,8,4]) // [4, 9]
+intersect([3,1,2], [2,2]) // [2]
+```
+:::
