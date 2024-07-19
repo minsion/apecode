@@ -27,5 +27,5 @@ npm run build
 npm run preview
 
 # 把项目中 .vitepress/dist 里面的文件提交到gh-pages分支，实现自动部署
-git subtree push --prefix .vitepress/dist origin gh-pages
+ git push origin :gh-pages && git subtree push --prefix .vitepress/dist origin gh-pages
 ```
